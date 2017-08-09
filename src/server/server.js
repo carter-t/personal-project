@@ -6,7 +6,7 @@ const express = require('express'),
 
 const app = express();
 
-app.use(session({secret: 'CerberusRex'}));
+app.use(session({secret: 'c3rb3rusR3x_!z$3xy'}));
 app.use(passport.initialize());
 app.use(passport.session());
 
