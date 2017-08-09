@@ -6,7 +6,7 @@ const express = require('express'),
 
 const app = express();
 
-app.use(session({secret: 'c3rb3rusR3x_!z$3xy'}));
+app.use(session({secret: config.secret}));
 app.use(passport.initialize());
 app.use(passport.session());
 
@@ -35,5 +35,5 @@ app.get('/me', (req, res) => {
   res.send(req.user);
 });
 
-const port = 3000;
+const port = config.port;
 app.listen(port, console.log('Portal #' + port));
