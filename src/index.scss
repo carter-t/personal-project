@@ -1,0 +1,19 @@
+//**********************************************************************
+// SCSS INDEX
+
+// Libraries
+@import './styles/_reset.scss';
+@import url('https://fonts.googleapis.com/css?family=Saira:400,600');
+@import './styles/_themes.scss';
+
+// Components
+@import './components/Header/_Header.scss';
+@import './components/Showcase/_Showcase.scss';
+@import './components/About/_About.scss';
+@import './components/Archive/_Archive.scss';
+@import './components/Contact/_Contact.scss';
+
+// Body Default
+body {
+  overflow-x: hidden;
+}

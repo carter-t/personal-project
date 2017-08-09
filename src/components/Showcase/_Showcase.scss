@@ -1,0 +1,40 @@
+.showcase {
+  background: $color1;
+  @include form(100vw, 70vh);
+  @include flex(center, default);
+}
+
+.mobile {
+  background: $color3;
+  @include form(90vh, 30vh);
+}
+
+@media(min-width: 800px) {
+  .full {
+    @include flex(default, default);
+  }
+
+  .half {
+    margin-right: 2vmin;
+    @include form(80vh, 70vh);
+  }
+
+  .tall {
+    margin-right: 2vmin;
+    background: $color3;
+    @include form(40vh, 70vh);
+  }
+
+  .wide {
+    background: $color4;
+    @include form(80vh, 34vh);
+  }
+
+  .mobile {
+    display: none;
+  }
+
+  .top {
+    margin-bottom: 2vmin;
+  }
+}

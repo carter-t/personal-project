@@ -1,0 +1,6 @@
+.about {
+  margin-top: 1vh;
+  background: $color1;
+  @include form(100vw, 300vh);
+  @include text($font1, 10vmin, 600, $color2);
+}

@@ -1,0 +1,101 @@
+.header {
+  margin-top: 8vh;
+  background: $color4;
+  @include form(100vw, 20vh);
+  @include flex(space-between, center);
+}
+
+.title {
+  margin-left: 5vmin;
+  @include text($font1, 10vmin, 600, $color2);
+}
+
+.sessionbar {
+  @include form(30vw, 100%);
+  @include flex(center, flex-end);
+}
+
+.session {
+  @include form(100%, 8vh);
+  @include flex(center, center);
+  @include text($font1, 4vmin, 600, $color2);
+}
+
+.session:hover {
+  background: $color3;
+  font-size: 5vmin;
+}
+
+.breakline {
+  background: $color2;
+  @include form(100%, 2vh);
+}
+
+.navbar {
+  position: fixed;
+  top: 0;
+  background: $color3;
+  @include form(100vw, 8vh);
+  @include flex(center, center);
+}
+
+.nav {
+  text-decoration: none;
+  @include form(100%, 8vh);
+  @include flex(center, center);
+  @include text($font1, 4vmin, 600, $color2);
+}
+
+.nav:hover {
+  background: $color4;
+  font-size: 6vmin;
+}
+
+.navtab {
+  display: none;
+}
+
+// Mobile View
+@media(max-width: 800px) {
+  .header {
+    margin-top: 0;
+    @include form(100vw, 15vh);
+  }
+
+  .title {
+    font-size: 15vmin;
+  }
+
+  .sessionbar {
+    display: inline;
+    @include form(25vw, 100%);
+  }
+
+  .session {
+    @include form(100%, 50%);
+  }
+
+  .session:hover {
+    font-size: 6vmin;
+  }
+
+  .navtab {
+    position: fixed;
+    bottom: 5vh;
+    background: $color4;
+    @include form(15vmin, 15vmin);
+    @include flex(center, center);
+  }
+
+  .menu {
+    text-decoration: none;
+    @include form(100%, 10vmin);
+    @include flex(center, center);
+    @include text($font1, 8vmin, 400, $color2);
+    @include flip90;
+  }
+
+  .navbar {
+    display: none;
+  }
+}

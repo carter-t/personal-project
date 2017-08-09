@@ -1,0 +1,60 @@
+//**********************************************************************
+// THEMES LIBRARY
+
+$color1: black;
+$color2: white;
+$color3: #424242;
+$color4: #FF4040;
+$font1: 'Saira', sans-serif;
+
+@mixin form($w, $h) {
+  width: $w;
+  height: $h;
+}
+
+@mixin flex($x, $y) {
+  display: flex;
+  justify-content: $x;
+  align-items: $y;
+}
+
+@mixin text($font, $size, $weight, $color) {
+  font-family: $font;
+  font-size: $size;
+  font-weight: $weight;
+  color: $color;
+}
+
+@mixin image($url) {
+  background-image: url($url);
+  background-position: center center;
+  // background-attachment: fixed;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+@mixin flipV {
+  -moz-transform: scaleY(-1);
+  -o-transform: scaleY(-1);
+  -webkit-transform: scaleY(-1);
+  transform: scaleY(-1);
+  filter: FlipV;
+  -ms-filter: "FlipV";
+}
+
+@mixin flipH {
+  -moz-transform: scaleX(-1);
+  -o-transform: scaleX(-1);
+  -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
+  filter: FlipH;
+  -ms-filter: "FlipH";
+}
+
+@mixin flip90 {
+  -webkit-transform: rotate(90deg);
+  -moz-transform: rotate(90deg);
+  -o-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  transform: rotate(90deg);
+}
