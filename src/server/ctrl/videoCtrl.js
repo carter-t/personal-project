@@ -1,6 +1,6 @@
 module.exports = {
 
-  create: (req, res, next) => {
+  createFavorite: (req, res, next) => {
     const dbInstance = req.app.get('db');
     const {name, description, price, imageurl} = req.body;
 

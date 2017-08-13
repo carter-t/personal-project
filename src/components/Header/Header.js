@@ -13,9 +13,8 @@ export default function Header() {
           <div className="navtab"><li className="mag"> &#9906; </li></div>
           <div className="navtab"><li> &#9776; </li></div>
 
-          <Link to="/auth/signup" className="navbar"><li> SIGN UP </li></Link>
           <Link to="/auth/login" className="navbar"><li> LOGIN </li></Link>
-          <Link to="/settings" className="navbar"><li> SETTINGS </li></Link>
+          <Link to="/profile" className="navbar"><li> PROFILE </li></Link>
         </ul>
       </div>
       <div className="lowline"></div>

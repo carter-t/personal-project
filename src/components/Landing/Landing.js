@@ -22,10 +22,9 @@ class Landing extends Component {
         <Header/>
         <div className="showcase">
           <div className="side">
-            <Button value="PREV"/>
+            <Button value="FAVORITE"/>
             <div className="break"></div>
-
-            <Button value="DELETE"/>
+            <Button value="COMMENT"/>
           </div>
 
             <div className="content">
@@ -39,23 +38,22 @@ class Landing extends Component {
 
               <div className="mobile">
                 <div className="column">
-                  <Button value="PREV"/>
-                  <Button value="NEXT"/>
+                  <Button value="FAVORITE"/>
+                  <Button value="RANDOM"/>
                 </div>
 
                 <div className="column">
-                  <Button value="DELETE"/>
-                  <Button value="SAVE"/>
+                  <Button value="COMMENT"/>
+                  <Button value="SHARE"/>
                 </div>
               </div>
 
             </div>
 
           <div className="side">
-            <Button value="NEXT"/>
+            <Button value="RANDOM"/>
             <div className="break"></div>
-            
-            <Button value="SAVE"/>
+            <Button value="SHARE"/>
           </div>
         </div>
 

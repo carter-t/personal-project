@@ -1,1 +1,0 @@
-delete from photos where photoID = $1;

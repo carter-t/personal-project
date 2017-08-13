@@ -1,1 +1,0 @@
-insert into photos (photoID, userID, URL) values ($1, $2, $3);
