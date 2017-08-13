@@ -1,0 +1,1 @@
+insert into content (contentID, userID, rating, comment) values ($1, $2, $3, $4);

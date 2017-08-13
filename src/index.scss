@@ -1,5 +1,4 @@
-//**********************************************************************
-// SCSS INDEX
+// SCSS Index
 
 // Libraries
 @import './styles/_reset.scss';
@@ -7,13 +6,9 @@
 @import './styles/_themes.scss';
 
 // Components
+@import './components/Landing/_Landing.scss';
 @import './components/Header/_Header.scss';
-@import './components/Showcase/_Showcase.scss';
-@import './components/About/_About.scss';
-@import './components/Archive/_Archive.scss';
-@import './components/Contact/_Contact.scss';
 
-// Body Default
-body {
-  overflow-x: hidden;
-}
+@import './components/Video/_Video.scss';
+@import './components/Search/_Search.scss';
+@import './components/Button/_Button.scss';

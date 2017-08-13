@@ -1,0 +1,70 @@
+.overflow {
+  padding-top: 10vh;
+  overflow-x: hidden;
+  background: $color1;
+  @include form(100vw, 100vh);
+}
+
+.showcase {
+  @include fill;
+}
+
+.content {
+  @include form(60vw, 100%);
+}
+
+.trim {
+  position: fixed;
+  background: black;
+  padding-top: 2vmin;
+  @include form(60vw, 5vmin);
+}
+
+.trim-fill {
+  @include form(60vw, 5vmin);
+}
+
+.break {
+  @include form(60vw, 15vmin);
+}
+
+.column {
+  @include form(100vw, 15vh);
+  @include flex(space-around, default);
+}
+
+// Mobile View
+@media(max-width: 800px) {
+  .side {
+    display: none;
+  }
+}
+
+// Desktop View
+@media(min-width: 800px) {
+  .mobile {
+    display: none;
+  }
+
+  .trim-fill {
+    @include form(60vw, 10vmin);
+  }
+
+  .showcase {
+    @include flex(center, default);
+  }
+
+  .side {
+    padding: 2.5vmin 0 0 5vmin;
+    @include form(20vw, 100%);
+  }
+
+  .overflow::-webkit-scrollbar {
+    width: 2vmin;
+    background: $color3;
+  }
+ 
+  .overflow::-webkit-scrollbar-thumb {
+    background-color: $color4;
+  }
+}

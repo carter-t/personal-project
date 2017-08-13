@@ -1,0 +1,40 @@
+.search-bar {
+  position: fixed;
+  background: $color4;
+  @include form(60vw, 5vh);
+  @include flex(flex-end, center);
+
+  border-top-left-radius: 25px;
+  border-bottom-left-radius: 25px;
+  border-top-right-radius: 25px;
+  border-bottom-right-radius: 25px;
+}
+
+.search-input {
+  border: none;
+  background: $color1;
+  text-indent: 2vh;
+  @include form(88% , 90%);
+  @include text($font2, large, 600, $color2);
+}
+
+.search-button {
+  background: $color4;
+  @include form(8%, 100%);
+  @include flex(center, center);
+  @include text($font1, 5vmin, 400, $color2);
+
+  border-top-right-radius: 25px;
+  border-bottom-right-radius: 25px;
+}
+
+// Mobile View
+@media(max-width: 800px) {
+  .search-bar {
+    display: none;
+  }
+
+  .trim {
+    display: none;
+  }
+}

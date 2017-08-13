@@ -1,0 +1,1 @@
+insert into videos (videoID, userID, URL) values ($1, $2, $3);

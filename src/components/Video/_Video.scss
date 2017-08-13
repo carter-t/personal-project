@@ -1,0 +1,34 @@
+.container {
+  @include form(100%, 450px);
+}
+
+.wrap {
+  background: $color3;
+  @include form(100%, 3vmin);
+}
+
+// Desktop View
+@media(min-width: 800px) {
+  .mobile-video {
+    display: none;
+  }
+
+  .desktop-video {
+    @include form(100%, 100%);
+  }
+}
+
+// Mobile View
+@media(max-width: 800px) {
+  .container {
+    @include form(100vw, 30vh);
+  }
+
+  .mobile-video {
+    @include form(100%, 100%);
+  }
+
+  .desktop-video {
+    display: none;
+  }
+}

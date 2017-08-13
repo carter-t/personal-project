@@ -1,0 +1,24 @@
+.button {
+  position: absolute;
+  margin-bottom: 10vh;
+  border-radius: 25px;
+  background: $color3;
+  @include form(15vw, 10vh);
+  @include flex(center, center);
+  @include text($font1, 5vmin, 600, $color1);
+}
+
+.button:hover {
+  background: $color4;
+  @include text($font1, 6vmin, 600, $color2);
+}
+
+// Mobile View
+@media(max-width: 800px) {
+  .button {
+    position: static;
+    // background: $color4;
+    @include text($font1, 6vmin, 600, $color1);
+    @include form(40vw, 10vh);
+  }
+}

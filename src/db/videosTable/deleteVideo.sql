@@ -1,0 +1,1 @@
+delete from videos where videoID = $1;

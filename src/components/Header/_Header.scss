@@ -1,101 +1,84 @@
 .header {
-  margin-top: 8vh;
-  background: $color4;
-  @include form(100vw, 20vh);
-  @include flex(space-between, center);
-}
-
-.title {
-  margin-left: 5vmin;
-  @include text($font1, 10vmin, 600, $color2);
-}
-
-.sessionbar {
-  @include form(30vw, 100%);
-  @include flex(center, flex-end);
-}
-
-.session {
-  @include form(100%, 8vh);
-  @include flex(center, center);
-  @include text($font1, 4vmin, 600, $color2);
-}
-
-.session:hover {
-  background: $color3;
-  font-size: 5vmin;
-}
-
-.breakline {
-  background: $color2;
-  @include form(100%, 2vh);
-}
-
-.navbar {
   position: fixed;
   top: 0;
   background: $color3;
+  margin-bottom: 20vh;
   @include form(100vw, 8vh);
-  @include flex(center, center);
+  @include flex(space-between, center);
+}
+
+.lowline {
+  position: fixed;
+  top: 0;
+  margin-top: 8vh;
+  background: $color4;
+  @include form(100vw, 2vh);
 }
 
 .nav {
-  text-decoration: none;
-  @include form(100%, 8vh);
-  @include flex(center, center);
-  @include text($font1, 4vmin, 600, $color2);
+  @include form(50%, 100%);
+  @include flex(space-around, center);
 }
 
-.nav:hover {
-  background: $color4;
-  font-size: 6vmin;
+.title {
+  height: 100%;
+  text-decoration: none;
+  @include form(40%, 100%);
+  @include flex(center, center);
+  @include text($font1, 10vmin, 600, $color2);
 }
 
 .navtab {
-  display: none;
+  text-decoration: none;
+  @include fill;
+  @include flex(center, center);
+  @include text($font1, 8vmin, 400, $color2);
+}
+
+.navtab:hover {
+  background: $color4;
+  font-size: 10vmin;
+}
+
+.mag {
+  @include rotate(-45);
 }
 
 // Mobile View
 @media(max-width: 800px) {
-  .header {
-    margin-top: 0;
-    @include form(100vw, 15vh);
+  .nav {
+    @include form(30%, 100%);
   }
 
+  .navbar {
+    display: none;
+  }
+
+  .search {
+    display: none;
+  }
+}
+
+// Desktop View
+@media(min-width: 800px) {
   .title {
-    font-size: 15vmin;
+    @include form(20%, 100%);
+    @include text($font1, 7vmin, 600, $color2);
   }
 
-  .sessionbar {
-    display: inline;
-    @include form(25vw, 100%);
+  .navbar {
+    text-decoration: none;
+    @include fill;
+    @include flex(center, center);
+    @include text($font1, 4vmin, 600, $color2);
   }
 
-  .session {
-    @include form(100%, 50%);
-  }
-
-  .session:hover {
+  .navbar:hover {
+    background: $color4;
     font-size: 6vmin;
   }
 
   .navtab {
-    position: fixed;
-    bottom: 5vh;
-    background: $color4;
-    @include form(15vmin, 15vmin);
-    @include flex(center, center);
-  }
-
-  .menu {
-    text-decoration: none;
-    @include form(100%, 10vmin);
-    @include flex(center, center);
-    @include text($font1, 8vmin, 400, $color2);
-    @include flip90;
-  }
-
-  .navbar {
     display: none;
   }
 }

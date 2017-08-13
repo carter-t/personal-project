@@ -1,0 +1,1 @@
+select * from videos where videoID = $1;

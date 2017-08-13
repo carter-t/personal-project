@@ -1,0 +1,1 @@
+update photos set (???target value???) = $2 where photoID = $1;
