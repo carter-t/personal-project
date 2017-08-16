@@ -7,14 +7,15 @@ export default function Header() {
     <div>
 
       <div className="header">
-        <Link to="/" className="title"> VIDYO </Link>
+        <Link to="/" className="title"> FICTION<h1 className="sign"> X </h1> </Link>
 
         <ul className="nav">
           <div className="navtab"><li className="mag"> &#9906; </li></div>
           <div className="navtab"><li> &#9776; </li></div>
 
-          <Link to="/auth/login" className="navbar"><li> LOGIN </li></Link>
-          <Link to="/profile" className="navbar"><li> PROFILE </li></Link>
+          <Link to="/auth" className="navbar sign"> SIGN UP </Link>
+          <Link to="/auth/callback" className="navbar"><li> LOGIN </li></Link>
+          <Link to="/settings" className="navbar"><li> LOGOUT </li></Link>
         </ul>
       </div>
       <div className="lowline"></div>

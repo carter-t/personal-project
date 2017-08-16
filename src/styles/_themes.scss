@@ -3,7 +3,8 @@
 $color1: black;
 $color2: white;
 $color3: #424242;
-$color4: #FF4040;
+$color4: #034D99;
+$color5: #33ff66;
 $font1: 'Saira', sans-serif;
 $font2: 'Courier New', sans-serif;
 
@@ -62,4 +63,11 @@ $font2: 'Courier New', sans-serif;
   -o-transform: rotate($x + 0deg);
   -ms-transform: rotate($x + 0deg);
   transform: rotate($x + 0deg);
+}
+
+@mixin corners {
+  border-top-left-radius: 25px;
+  border-top-right-radius: 25px;
+  border-bottom-left-radius: 25px;
+  border-bottom-right-radius: 25px;
 }

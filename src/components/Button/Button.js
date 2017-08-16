@@ -1,13 +1,25 @@
 import React from 'react';
 import './_Button.scss';
 
-export default function Button(props) {
+export function Button(props) {
   return (
     <div>
 
-      <div className="button">
+      <button className="button">
         <h1> {props.value} </h1>
-      </div>
+      </button>
+
+    </div>
+  )
+}
+
+export function Button2(props) {
+  return (
+    <div>
+
+      <button className="button2">
+        <h1> {props.value} </h1>
+      </button>
 
     </div>
   )

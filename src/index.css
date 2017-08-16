@@ -42,6 +42,18 @@ table {
   border-collapse: collapse;
   border-spacing: 0; }
 
+button:focus {
+  outline: 0; }
+
+button {
+  border: none; }
+
+input:focus {
+  outline: 0; }
+
+textarea:focus {
+  outline: 0; }
+
 .overflow {
   padding-top: 10vh;
   overflow-x: hidden;
@@ -54,23 +66,32 @@ table {
   height: 100%; }
 
 .content {
-  width: 60vw;
+  width: 69vw;
   height: 100%; }
 
 .trim {
   position: fixed;
   background: black;
-  padding-top: 2vmin;
-  width: 60vw;
+  padding-top: 3vmin;
+  width: 69vw;
   height: 5vmin; }
 
 .trim-fill {
-  width: 60vw;
-  height: 5vmin; }
+  width: 100%;
+  height: 3vh; }
 
 .break {
-  width: 60vw;
+  width: 100%;
   height: 15vmin; }
+
+.br {
+  width: 100%;
+  height: 5vmin; }
+
+.push-left {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center; }
 
 .column {
   width: 100vw;
@@ -87,21 +108,23 @@ table {
   .mobile {
     display: none; }
   .trim-fill {
-    width: 60vw;
+    width: 69vw;
     height: 10vmin; }
   .showcase {
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: default; }
   .side {
-    padding: 2.5vmin 0 0 5vmin;
-    width: 20vw;
-    height: 100%; }
-  .overflow::-webkit-scrollbar {
-    width: 2vmin;
-    background: #424242; }
-  .overflow::-webkit-scrollbar-thumb {
-    background-color: #FF4040; } }
+    padding: 5vmin 0 0 3vmin;
+    width: 15vw;
+    height: 100%; } }
+
+.overflow::-webkit-scrollbar {
+  width: 2vmin;
+  background: #424242; }
+
+.overflow::-webkit-scrollbar-thumb {
+  background-color: #034D99; }
 
 .header {
   position: fixed;
@@ -118,12 +141,12 @@ table {
   position: fixed;
   top: 0;
   margin-top: 8vh;
-  background: #FF4040;
+  background: #034D99;
   width: 100vw;
   height: 2vh; }
 
 .nav {
-  width: 50%;
+  width: 40%;
   height: 100%;
   display: flex;
   justify-content: space-around;
@@ -132,7 +155,7 @@ table {
 .title {
   height: 100%;
   text-decoration: none;
-  width: 40%;
+  width: 60%;
   height: 100%;
   display: flex;
   justify-content: center;
@@ -155,7 +178,7 @@ table {
   color: white; }
 
 .navtab:hover {
-  background: #FF4040;
+  background: #034D99;
   font-size: 10vmin; }
 
 .mag {
@@ -194,63 +217,191 @@ table {
     font-weight: 600;
     color: white; }
   .navbar:hover {
-    background: #FF4040;
+    background: #034D99;
     font-size: 6vmin; }
+  .sign {
+    color: #034D99; }
+  .sign:hover {
+    color: white; }
   .navtab {
     display: none; } }
 
+.wrapper {
+  background: #034D99;
+  width: 100%;
+  height: 100%;
+  border-top-left-radius: 25px;
+  border-top-right-radius: 25px; }
+
+.category {
+  padding: 3vmin 0 0 3vmin;
+  width: 100%;
+  height: 10vh;
+  font-family: "Saira", sans-serif;
+  font-size: 7vmin;
+  font-weight: 600;
+  color: white; }
+
 .container {
   width: 100%;
-  height: 450px; }
+  height: 100%; }
 
-.wrap {
-  background: #424242;
-  width: 100%;
+.lineup {
+  padding-top: 3vmin;
+  font-family: "Courier New", sans-serif;
+  font-size: large;
+  font-weight: 600;
+  color: black; }
+
+.descriptor {
+  margin-left: 3vmin;
+  text-indent: 2vmin;
+  width: 43vmin;
+  height: 5vmin;
+  font-family: "Courier New", sans-serif;
+  font-size: large;
+  font-weight: 600;
+  color: black;
+  border-top-left-radius: 25px;
+  border-top-right-radius: 25px;
+  border-bottom-left-radius: 25px;
+  border-bottom-right-radius: 25px; }
+
+.shortform {
+  padding: 2vmin;
+  margin-left: 3vmin;
+  box-sizing: border-box;
+  width: 95%;
+  height: 20vh;
+  font-family: "Courier New", sans-serif;
+  font-size: large;
+  font-weight: 600;
+  color: black;
+  border-top-left-radius: 25px;
+  border-top-right-radius: 25px;
+  border-bottom-left-radius: 25px;
+  border-bottom-right-radius: 25px; }
+
+.longform {
+  padding: 2vmin;
+  margin-left: 3vmin;
+  box-sizing: border-box;
+  width: 95%;
+  height: 40vh;
+  font-family: "Courier New", sans-serif;
+  font-size: large;
+  font-weight: 600;
+  color: black;
+  border-top-left-radius: 25px;
+  border-top-right-radius: 25px;
+  border-bottom-left-radius: 25px;
+  border-bottom-right-radius: 25px; }
+
+.checkform {
+  margin-top: 1.5vmin;
+  display: flex;
+  justify-content: default;
+  align-items: center;
+  font-family: "Saira", sans-serif;
+  font-size: large;
+  font-weight: 600;
+  color: white; }
+
+.checkbox {
+  width: 3vmin;
   height: 3vmin; }
 
-@media (min-width: 800px) {
-  .mobile-video {
-    display: none; }
-  .desktop-video {
-    width: 100%;
-    height: 100%; } }
+.caption {
+  margin-top: 3vmin;
+  font-family: "Saira", sans-serif;
+  font-size: 4vmin;
+  font-weight: 600;
+  color: white; }
+
+.sixty {
+  display: flex;
+  justify-content: space-around;
+  align-items: default; }
+
+.taper {
+  background: #034D99;
+  margin-bottom: 5vmin;
+  width: 100%;
+  height: 5vmin;
+  border-bottom-left-radius: 25px;
+  border-bottom-right-radius: 25px; }
+
+.button-bar {
+  margin-top: 5vmin;
+  padding-right: 3.5vmin;
+  width: 100%;
+  height: 10vh;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center; }
 
 @media (max-width: 800px) {
   .container {
     width: 100vw;
-    height: 30vh; }
-  .mobile-video {
-    width: 100%;
-    height: 100%; }
-  .desktop-video {
-    display: none; } }
+    height: 30vh; } }
+
+.item-container {
+  width: 100%;
+  height: 100%; }
+
+.single-item {
+  margin: 3vmin 0 0 3.5vmin;
+  border-radius: 25px;
+  background: #424242;
+  width: 95%;
+  height: 10vh;
+  font-family: "Saira", sans-serif;
+  font-size: 5vmin;
+  font-weight: 600;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: default; }
+
+.item-title {
+  text-indent: 3vmin;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center; }
+
+.item-menu {
+  width: 65%;
+  height: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center; }
 
 .search-bar {
   position: fixed;
-  background: #FF4040;
-  width: 60vw;
+  background: #034D99;
+  width: 69vw;
   height: 5vh;
   display: flex;
   justify-content: flex-end;
   align-items: center;
   border-top-left-radius: 25px;
-  border-bottom-left-radius: 25px;
   border-top-right-radius: 25px;
+  border-bottom-left-radius: 25px;
   border-bottom-right-radius: 25px; }
 
 .search-input {
   border: none;
   background: black;
-  text-indent: 2vh;
+  text-indent: 2vmin;
   width: 88%;
-  height: 90%;
+  height: 95%;
   font-family: "Courier New", sans-serif;
   font-size: large;
   font-weight: 600;
   color: white; }
 
 .search-button {
-  background: #FF4040;
+  background: #034D99;
   width: 8%;
   height: 100%;
   display: flex;
@@ -265,31 +416,67 @@ table {
 
 @media (max-width: 800px) {
   .search-bar {
-    display: none; }
-  .trim {
     display: none; } }
 
 .button {
   position: absolute;
-  margin-bottom: 10vh;
   border-radius: 25px;
   background: #424242;
-  width: 15vw;
-  height: 10vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  width: 25vmin;
+  height: 10vmin;
   font-family: "Saira", sans-serif;
-  font-size: 5vmin;
+  font-size: 4vmin;
   font-weight: 600;
   color: black; }
 
 .button:hover {
-  background: #FF4040;
+  background: #034D99;
+  font-family: "Saira", sans-serif;
+  font-size: 5vmin;
+  font-weight: 600;
+  color: white; }
+
+.button2 {
+  margin-left: 5vmin;
+  border-radius: 25px;
+  background: black;
+  width: 15vw;
+  height: 10vh;
+  font-family: "Saira", sans-serif;
+  font-size: 5vmin;
+  font-weight: 600;
+  color: white; }
+
+.button2:hover {
+  background: white;
   font-family: "Saira", sans-serif;
   font-size: 6vmin;
   font-weight: 600;
+  color: #034D99; }
+
+.button3 {
+  background: #424242;
+  width: 100%;
+  height: 100%;
+  font-family: "Saira", sans-serif;
+  font-size: 5vmin;
+  font-weight: 600;
   color: white; }
+
+.button3:hover {
+  background: white;
+  font-family: "Saira", sans-serif;
+  font-size: 6vmin;
+  font-weight: 600;
+  color: #034D99; }
+
+.round-right {
+  border-top-right-radius: 25px;
+  border-bottom-right-radius: 25px; }
+
+.round-left {
+  border-top-left-radius: 25px;
+  border-bottom-left-radius: 25px; }
 
 @media (max-width: 800px) {
   .button {

@@ -1,23 +1,54 @@
 .button {
   position: absolute;
-  margin-bottom: 10vh;
   border-radius: 25px;
   background: $color3;
-  @include form(15vw, 10vh);
-  @include flex(center, center);
-  @include text($font1, 5vmin, 600, $color1);
+  @include form(25vmin, 10vmin);
+  @include text($font1, 4vmin, 600, $color1);
 }
 
 .button:hover {
   background: $color4;
-  @include text($font1, 6vmin, 600, $color2);
+  @include text($font1, 5vmin, 600, $color2);
+}
+
+.button2 {
+  margin-left: 5vmin;
+  border-radius: 25px;
+  background: $color1;
+  @include form(15vw, 10vh);
+  @include text($font1, 5vmin, 600, $color2);
+}
+
+.button2:hover {
+  background: $color2;
+  @include text($font1, 6vmin, 600, $color4);
+}
+
+.button3 {
+  background: $color3;
+  @include fill;
+  @include text($font1, 5vmin, 600, $color2);
+}
+
+.button3:hover {
+  background: $color2;
+  @include text($font1, 6vmin, 600, $color4);
+}
+
+.round-right {
+  border-top-right-radius: 25px;
+  border-bottom-right-radius: 25px;
+}
+
+.round-left {
+  border-top-left-radius: 25px;
+  border-bottom-left-radius: 25px;
 }
 
 // Mobile View
 @media(max-width: 800px) {
   .button {
     position: static;
-    // background: $color4;
     @include text($font1, 6vmin, 600, $color1);
     @include form(40vw, 10vh);
   }

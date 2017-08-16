@@ -1,20 +1,20 @@
 .search-bar {
   position: fixed;
   background: $color4;
-  @include form(60vw, 5vh);
+  @include form(69vw, 5vh);
   @include flex(flex-end, center);
 
   border-top-left-radius: 25px;
-  border-bottom-left-radius: 25px;
   border-top-right-radius: 25px;
+  border-bottom-left-radius: 25px;
   border-bottom-right-radius: 25px;
 }
 
 .search-input {
   border: none;
   background: $color1;
-  text-indent: 2vh;
-  @include form(88% , 90%);
+  text-indent: 2vmin;
+  @include form(88% , 95%);
   @include text($font2, large, 600, $color2);
 }
 
@@ -31,10 +31,6 @@
 // Mobile View
 @media(max-width: 800px) {
   .search-bar {
-    display: none;
-  }
-
-  .trim {
     display: none;
   }
 }

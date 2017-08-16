@@ -6,7 +6,7 @@ export default function Search() {
     <div>
 
       <div className="search-bar">
-        <input className="search-input" placeholder="Search"></input>
+        <input type="search" className="search-input" placeholder="Search"></input>
         <div className="search-button">
           <div className="mag"> &#9906; </div>
         </div>

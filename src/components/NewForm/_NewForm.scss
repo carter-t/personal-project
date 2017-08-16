@@ -1,0 +1,95 @@
+.wrapper {
+  background: $color4;
+  @include fill;
+
+  border-top-left-radius: 25px;
+  border-top-right-radius: 25px;
+}
+
+.category {
+  padding: 3vmin 0 0 3vmin;
+  @include form(100%, 10vh);
+  @include text($font1, 7vmin, 600, $color2);
+}
+
+.container {
+  @include fill;
+}
+
+.lineup {
+  padding-top: 3vmin;
+  @include text($font2, large, 600, $color1);
+}
+
+.descriptor {
+  margin-left: 3vmin;
+  text-indent: 2vmin;
+  @include form(43vmin, 5vmin);
+  @include text($font2, large, 600, $color1);
+  @include corners;
+}
+
+.shortform {
+  padding: 2vmin;
+  margin-left: 3vmin;
+  box-sizing: border-box;
+  @include form(95%, 20vh);
+  @include text($font2, large, 600, $color1);
+  @include corners;
+}
+
+.longform {
+  padding: 2vmin;
+  margin-left: 3vmin;
+  box-sizing: border-box;
+  @include form(95%, 40vh);
+  @include text($font2, large, 600, $color1);
+  @include corners;
+}
+
+.checkform {
+  margin-top: 1.5vmin;
+  @include flex(default, center);
+  @include text($font1, large, 600, $color2);
+}
+
+.checkbox {
+  @include form(3vmin, 3vmin);
+}
+
+.caption {
+  margin-top: 3vmin;
+  @include text($font1, 4vmin, 600, $color2);
+}
+
+.sixty {
+  @include flex(space-around, default);
+}
+
+.taper {
+  background: $color4;
+  margin-bottom: 5vmin;
+  @include form(100%, 5vmin);
+
+  border-bottom-left-radius: 25px;
+  border-bottom-right-radius: 25px;
+}
+
+.button-bar {
+  margin-top: 5vmin;
+  padding-right: 3.5vmin;
+  @include form(100%, 10vh);
+  @include flex(flex-end, center);
+}
+
+// // Desktop View
+// @media(min-width: 800px) {
+
+// }
+
+// Mobile View
+@media(max-width: 800px) {
+  .container {
+    @include form(100vw, 30vh);
+  }
+}

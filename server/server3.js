@@ -63,6 +63,6 @@ massive('postgres://oieqlzxiltdtto:65c65e6d4006ec3b58ab877d82b751bbfee3a2fd167ef
 
     app.set('db', db);
     app.listen(port, () => {
-      console.log('Started server on port', port);
+      console.log('Portal #' + port);
     });
 });

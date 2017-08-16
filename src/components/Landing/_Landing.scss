@@ -10,22 +10,30 @@
 }
 
 .content {
-  @include form(60vw, 100%);
+  @include form(69vw, 100%);
 }
 
 .trim {
   position: fixed;
   background: black;
-  padding-top: 2vmin;
-  @include form(60vw, 5vmin);
+  padding-top: 3vmin;
+  @include form(69vw, 5vmin);
 }
 
 .trim-fill {
-  @include form(60vw, 5vmin);
+  @include form(100%, 3vh);
 }
 
 .break {
-  @include form(60vw, 15vmin);
+  @include form(100%, 15vmin);
+}
+
+.br {
+  @include form(100%, 5vmin);
+}
+
+.push-left {
+  @include flex(flex-end, center);
 }
 
 .column {
@@ -47,24 +55,24 @@
   }
 
   .trim-fill {
-    @include form(60vw, 10vmin);
+    @include form(69vw, 10vmin);
   }
 
   .showcase {
-    @include flex(center, default);
+    @include flex(flex-start, default);
   }
 
   .side {
-    padding: 2.5vmin 0 0 5vmin;
-    @include form(20vw, 100%);
+    padding: 5vmin 0 0 3vmin;
+    @include form(15vw, 100%);
   }
+}
 
-  .overflow::-webkit-scrollbar {
-    width: 2vmin;
-    background: $color3;
-  }
- 
-  .overflow::-webkit-scrollbar-thumb {
-    background-color: $color4;
-  }
+.overflow::-webkit-scrollbar {
+  width: 2vmin;
+  background: $color3;
+}
+
+.overflow::-webkit-scrollbar-thumb {
+  background-color: $color4;
 }

@@ -1,0 +1,34 @@
+.item-container {
+  @include fill;
+}
+
+.single-item {
+  margin: 3vmin 0 0 3.5vmin;
+  border-radius: 25px;
+  background: $color3;
+  @include form(95%, 10vh);
+  @include text($font1, 5vmin, 600, $color2);
+  @include flex(space-between, default);
+}
+
+.item-title {
+  text-indent: 3vmin;
+  @include flex(flex-start, center);
+}
+
+.item-menu {
+  @include form(65%, 100%);
+  @include flex(flex-end, center);
+}
+
+// // Desktop View
+// @media(min-width: 800px) {
+
+// }
+
+// // Mobile View
+// @media(max-width: 800px) {
+//   .container {
+//     @include form(100vw, 30vh);
+//   }
+// }

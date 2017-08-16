@@ -1,0 +1,1 @@
+insert into users (authID, firstName, lastName) values ($1, $2, $3);
