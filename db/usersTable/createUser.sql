@@ -1,1 +1,1 @@
-insert into users (authID, firstName, lastName) values ($1, $2, $3);
+insert into users (authID, userName, firstName, lastName) values ($1, $2, $3, $4);

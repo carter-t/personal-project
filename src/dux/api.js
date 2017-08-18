@@ -1,9 +1,13 @@
 import axios from 'axios';
+const data = require('./data.js');
 
-export const getRequest = () => {
-  return axios.get('http://www...url')
+export const getData = () => {
+  return axios.get(data.connection)
     .then(res => {
       let target = res.data.targetValue;
+      console.log(target);
       return target;
     });
 }
+
+getData();

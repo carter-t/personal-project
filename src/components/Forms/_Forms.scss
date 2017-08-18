@@ -7,8 +7,8 @@
   border-radius: 25px;
   background: $color3;
   @include form(95%, 10vh);
-  @include text($font1, 5vmin, 600, $color2);
   @include flex(space-between, default);
+  @include text($font1, 5vmin, 600, $color2);
 }
 
 .item-title {
@@ -19,6 +19,42 @@
 .item-menu {
   @include form(65%, 100%);
   @include flex(flex-end, center);
+}
+
+.item-menu-small {
+  @include form(40%, 100%);
+  @include flex(flex-end, center);
+}
+
+.profile {
+  margin-top: 3vmin;
+  @include fill;
+  @include flex(center, center);
+}
+
+.photo {
+  margin-right: 5vmin;
+  border: 3px solid $color2;
+  border-radius: 25px;
+  background: $color1;
+  @include form(25%, 40vh);
+}
+
+.info {
+  padding: 3vmin;
+  border: 3px solid $color2;
+  border-radius: 25px;
+  @include form(50%, 40vh);
+}
+
+.fat-font {
+  margin-bottom: 3vmin;
+  @include text($font1, 7vmin, 600, $color2);
+}
+
+.small-font {
+  margin-bottom: 3vmin;
+  @include text($font1, 5vmin, 600, $color2);
 }
 
 // // Desktop View

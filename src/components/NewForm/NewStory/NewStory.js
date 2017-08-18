@@ -116,7 +116,7 @@ export default class NewStory extends Component {
               </form>
 
               <form className="sixty">
-                <div className="caption"> WORLD
+                <div className="caption"> WORLDS
                   <div className="checkform"><input type="checkbox" className="checkbox" value="World"
                     onChange={ (e) => this.updateCharRole(e.target.value) }/> World </div>
                 </div>

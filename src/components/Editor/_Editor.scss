@@ -1,0 +1,37 @@
+.book {
+  background: $color4;
+  @include fill;
+
+  border-top-left-radius: 25px;
+  border-top-right-radius: 25px;
+}
+
+.novel {
+  padding-top: 3vmin;
+  @include form(100%, 5vh);
+  @include flex(center, center);
+  @include text($font1, 5vmin, 600, $color2);
+}
+
+.volume {
+  margin-top: 3vmin;
+  @include fill;
+  @include flex(center, center);
+}
+
+.page {
+  padding: 3vmin;
+  background: $color1;
+  border-radius: 25px;
+  @include form(95%, 40vh);
+  @include text($font2, 3vmin, 400, $color5);
+}
+
+.cut {
+  background: $color4;
+  margin-bottom: 5vmin;
+  @include form(100%, 5vmin);
+
+  border-bottom-left-radius: 25px;
+  border-bottom-right-radius: 25px;
+}

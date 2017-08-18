@@ -1,1 +1,0 @@
-delete from content where contentID = $1;

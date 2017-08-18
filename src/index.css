@@ -221,7 +221,7 @@ textarea:focus {
     font-size: 6vmin; }
   .sign {
     color: #034D99; }
-  .sign:hover {
+  .up:hover {
     color: white; }
   .navtab {
     display: none; } }
@@ -355,13 +355,13 @@ textarea:focus {
   background: #424242;
   width: 95%;
   height: 10vh;
+  display: flex;
+  justify-content: space-between;
+  align-items: default;
   font-family: "Saira", sans-serif;
   font-size: 5vmin;
   font-weight: 600;
-  color: white;
-  display: flex;
-  justify-content: space-between;
-  align-items: default; }
+  color: white; }
 
 .item-title {
   text-indent: 3vmin;
@@ -375,6 +375,96 @@ textarea:focus {
   display: flex;
   justify-content: flex-end;
   align-items: center; }
+
+.item-menu-small {
+  width: 40%;
+  height: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center; }
+
+.profile {
+  margin-top: 3vmin;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+
+.photo {
+  margin-right: 5vmin;
+  border: 3px solid white;
+  border-radius: 25px;
+  background: black;
+  width: 25%;
+  height: 40vh; }
+
+.info {
+  padding: 3vmin;
+  border: 3px solid white;
+  border-radius: 25px;
+  width: 50%;
+  height: 40vh; }
+
+.fat-font {
+  margin-bottom: 3vmin;
+  font-family: "Saira", sans-serif;
+  font-size: 7vmin;
+  font-weight: 600;
+  color: white; }
+
+.small-font {
+  margin-bottom: 3vmin;
+  font-family: "Saira", sans-serif;
+  font-size: 5vmin;
+  font-weight: 600;
+  color: white; }
+
+.book {
+  background: #034D99;
+  width: 100%;
+  height: 100%;
+  border-top-left-radius: 25px;
+  border-top-right-radius: 25px; }
+
+.novel {
+  padding-top: 3vmin;
+  width: 100%;
+  height: 5vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Saira", sans-serif;
+  font-size: 5vmin;
+  font-weight: 600;
+  color: white; }
+
+.volume {
+  margin-top: 3vmin;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+
+.page {
+  padding: 3vmin;
+  background: black;
+  border-radius: 25px;
+  width: 95%;
+  height: 40vh;
+  font-family: "Courier New", sans-serif;
+  font-size: 3vmin;
+  font-weight: 400;
+  color: #33ff66; }
+
+.cut {
+  background: #034D99;
+  margin-bottom: 5vmin;
+  width: 100%;
+  height: 5vmin;
+  border-bottom-left-radius: 25px;
+  border-bottom-right-radius: 25px; }
 
 .search-bar {
   position: fixed;
@@ -440,7 +530,7 @@ textarea:focus {
   margin-left: 5vmin;
   border-radius: 25px;
   background: black;
-  width: 15vw;
+  width: 12vw;
   height: 10vh;
   font-family: "Saira", sans-serif;
   font-size: 5vmin;

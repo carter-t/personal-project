@@ -1,17 +1,18 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-// import {Link} from 'react-router-dom';
 
 import Header from './../Header/Header.js';
 import Search from './../Search/Search.js';
 
-import NewStory from './../NewForm/NewStory/NewStory.js';
-import NewWorld from './../NewForm/NewWorld/NewWorld.js';
-import NewFaction from './../NewForm/NewFaction/NewFaction.js';
-import NewPlace from './../NewForm/NewPlace/NewPlace.js';
-import NewCharacter from './../NewForm/NewCharacter/NewCharacter.js';
+import Profile from './../Forms/Profile/Profile.js';
+import Novels from './../Forms/Novels/Novels.js';
 
+import Worlds from './../Forms/Worlds/Worlds.js';
+import Factions from './../Forms/Factions/Factions.js';
+import Places from './../Forms/Places/Places.js';
 import People from './../Forms/People/People.js';
+
+import Editor from './../Editor/Editor.js';
 
 class Landing extends Component {
   constructor(props) {
@@ -30,11 +31,15 @@ class Landing extends Component {
 
     const renderWorlds = () => {
       switch(this.state.content) {
-        case 'WORLDS': return <NewWorld/>
-        case 'FACTIONS': return <NewFaction/>
-        case 'PLACES': return <NewPlace/>
+        case 'NOVELS': return <Novels/>
+        case 'PROFILE': return <Profile/>
+
+        case 'WORLDS': return <Worlds/>
+        case 'FACTIONS': return <Factions/>
+        case 'PLACES': return <Places/>
         case 'PEOPLE': return <People/>
-        default: return <NewStory/>
+
+        default: return <Editor/>
       }
     };
 
@@ -81,16 +86,16 @@ class Landing extends Component {
             </div>
 
           <div className="side">
+            <button value="NOVELS" className="button"
+              onClick={ (e) => this.updateContent(e.target.value)}> NOVELS </button>
+              <div className="break"></div>
+            <button value="SAVE" className="button"
+              onClick={ (e) => this.updateContent(e.target.value)}> SAVE </button>
+              <div className="break"></div>
             <button value="PROFILE" className="button"
               onClick={ (e) => this.updateContent(e.target.value)}> PROFILE </button>
-            <div className="break"></div>
-            <button value="STORIES" className="button"
-              onClick={ (e) => this.updateContent(e.target.value)}> STORIES </button>
-            <div className="break"></div>
-            <button value="NEW" className="button"
-              onClick={ (e) => this.updateContent(e.target.value)}> RANDOM </button>
-            <div className="break"></div>
-            <button value="RANDOM" className="button"
+              <div className="break"></div>
+            <button value="SETTINGS" className="button"
               onClick={ (e) => this.updateContent(e.target.value)}> SETTINGS </button>
           </div>
         </div>

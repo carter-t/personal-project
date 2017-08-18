@@ -15,7 +15,7 @@
   margin-left: 5vmin;
   border-radius: 25px;
   background: $color1;
-  @include form(15vw, 10vh);
+  @include form(12vw, 10vh);
   @include text($font1, 5vmin, 600, $color2);
 }
 
