@@ -19,13 +19,10 @@ passport.use(new Auth0Strategy({
   clientSecret: config.clientSecret,
   callbackURL: config.callbackURL
 }, (accessToken, refreshToken, extraParams, profile, done) => {
-  let db = app.get("db");
+  const db = app.get("db");
   db.usersTable.readUser([profile.id]).then(res => {
   if(!res.length) {
     db.usersTable.createUser([profile.id, profile.displayName, profile.name.givenName, profile.name.familyName]);
-  }
-  else {
-    db.usersTable.readUser([profile.id]);
   }
   return done(null, profile);
 });
@@ -34,24 +31,18 @@ passport.use(new Auth0Strategy({
 
 app.get('/auth', passport.authenticate('auth0'));
 app.get('/auth/callback', passport.authenticate('auth0', {
-  successRedirect: '/me'}));
+  successRedirect: 'http://localhost:3000'}));
 
-// passport.serializeUser((profile, done) => {
-//   const content = (
-//     <table>
-//       <tr>
-//         <td> {profile.id} </td>
-//       </tr>
-//     </table>
-//   )
-//   done(null, profile);
-// });
+passport.serializeUser((profile, done) => {
+  
+  done(null, profile);
+});
 
 passport.deserializeUser((profileFromSession, done) => {
   done(null, profileFromSession);
 });
 
-app.get('/me', (req, res) => {
+app.get('/userData', (req, res) => {
   res.send(req.user);
 });
 

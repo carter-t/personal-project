@@ -23,7 +23,7 @@ export default class Profile extends Component {
           <div className="profile">
             <div className="photo"></div>
             <div className="info">
-              <h1 className="fat-font"> USERNAME </h1>
+              <h1 className="fat-font"> {} </h1>
               <h1 className="small-font"> PEN NAME </h1>
               <h1 className="small-font"> PASSWORD </h1>
               <h1 className="small-font"> EMAIL </h1>

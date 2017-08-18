@@ -1,23 +1,26 @@
+import axios from 'axios';
+
 const initialState = {
-  actionType: ''
+  getData: {},
 }
 
-const ACTION_TYPE = 'ACTION_TYPE';
+const GET_DATA = 'GET_DATA';
 
 export default function reducer(state=initialState, action) {
+  console.log(action.type)
   switch(action.type) {
 
-    case ACTION_TYPE:
-      return Object.assign({}, state, {actionType: action.payload});
+    case GET_DATA + "_FULFILLED":
+      return Object.assign({}, state, {getData: action.payload.data});
 
     default:
       return state;
   }
 }
 
-export function updateActionType(value) {
+export function getData(value) {
   return {
-    type: ACTION_TYPE,
-    payload: value
+    type: GET_DATA,
+    payload: axios.get("/userData")
   }
 }
