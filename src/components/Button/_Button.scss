@@ -2,7 +2,7 @@
   position: absolute;
   border-radius: 25px;
   background: $color3;
-  @include form(25vmin, 10vmin);
+  @include form(27vmin, 10vmin);
   @include text($font1, 4vmin, 600, $color1);
 }
 

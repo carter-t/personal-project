@@ -16,7 +16,7 @@
 }
 
 .nav {
-  @include form(40%, 100%);
+  @include form(30%, 100%);
   @include flex(space-around, center);
 }
 
@@ -62,7 +62,7 @@
 // Desktop View
 @media(min-width: 800px) {
   .title {
-    @include form(20%, 100%);
+    @include form(15%, 100%);
     @include text($font1, 7vmin, 600, $color2);
   }
 

@@ -13,7 +13,7 @@ export default class Editor extends Component {
       <div>
 
         <div className="book">
-          <div className="novel"> CURRENT NOVEL TITLE </div>
+          <div className="novel"> CONSOLE </div>
 
           <div className="volume">
             <textarea className="page"></textarea>

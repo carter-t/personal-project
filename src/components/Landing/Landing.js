@@ -4,8 +4,10 @@ import {connect} from 'react-redux';
 import Header from './../Header/Header.js';
 import Search from './../Search/Search.js';
 
-import Profile from './../Forms/Profile/Profile.js';
 import Novels from './../Forms/Novels/Novels.js';
+import Chapters from './../Forms/Chapters/Chapters.js';
+import Random from './../Forms/Random/Random.js';
+import Profile from './../Forms/Profile/Profile.js';
 
 import Worlds from './../Forms/Worlds/Worlds.js';
 import Factions from './../Forms/Factions/Factions.js';
@@ -28,11 +30,12 @@ class Landing extends Component {
   }
 
   render() {
-
-    const renderWorlds = () => {
+    const renderForm = () => {
       switch(this.state.content) {
         case 'NOVELS': return <Novels/>
+        case 'CHAPTERS': return <Chapters/>
         case 'PROFILE': return <Profile/>
+        case 'RANDOM': return <Random/>
 
         case 'WORLDS': return <Worlds/>
         case 'FACTIONS': return <Factions/>
@@ -81,7 +84,7 @@ class Landing extends Component {
                 </div>
               </div> */}
 
-              {renderWorlds()}
+              {renderForm()}
 
             </div>
 
@@ -89,14 +92,14 @@ class Landing extends Component {
             <button value="NOVELS" className="button"
               onClick={ (e) => this.updateContent(e.target.value)}> NOVELS </button>
               <div className="break"></div>
-            <button value="SAVE" className="button"
-              onClick={ (e) => this.updateContent(e.target.value)}> SAVE </button>
+            <button value="CHAPTERS" className="button"
+              onClick={ (e) => this.updateContent(e.target.value)}> CHAPTERS </button>
+              <div className="break"></div>
+            <button value="RANDOM" className="button"
+              onClick={ (e) => this.updateContent(e.target.value)}> RANDOM </button>
               <div className="break"></div>
             <button value="PROFILE" className="button"
               onClick={ (e) => this.updateContent(e.target.value)}> PROFILE </button>
-              <div className="break"></div>
-            <button value="SETTINGS" className="button"
-              onClick={ (e) => this.updateContent(e.target.value)}> SETTINGS </button>
           </div>
         </div>
 
@@ -105,12 +108,8 @@ class Landing extends Component {
   }
 }
 
-function mapStateToProps(state) {
+export default connect((state) => {
   return {
-    // value: state.value (state to cherry-pick)
+    state: ''
   }
-}
-
-export default connect(mapStateToProps, {
-  // updateFunction (reducer function to map, import at top as well)
-})(Landing);
+}, {})(Landing);

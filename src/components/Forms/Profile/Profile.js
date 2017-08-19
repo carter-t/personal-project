@@ -1,42 +1,42 @@
 import React, {Component} from 'react';
+import {connect} from 'react-redux';
+import UserProfile from './UserProfile.js'
 
-export default class Profile extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      firstName: ''
-    }
-    this.updateFirstName = this.updateFirstName.bind(this);
-  }
+class Profile extends Component { 
+  render(state) {
 
-  updateFirstName(event) {
-    this.setState({firstName: event});
-  }
-
-  render() {
-    return (
-      <div>
-
-        <div className="wrapper">
+    const renderUser = (state) => {
+      if(this.props.userID) {
+        return <UserProfile/>
+      }
+      else {return (
+        <div>
+          <div className="wrapper">
           <div className="category"> PROFILE </div>
 
           <div className="profile">
-            <div className="photo"></div>
+            <img src="http://thenewoffice.com/wp-content/uploads/2013/10/Default-Profile.jpg" alt="Profile Pic" className="photo"></img>
             <div className="info">
-              <h1 className="fat-font"> {} </h1>
-              <h1 className="small-font"> PEN NAME </h1>
-              <h1 className="small-font"> PASSWORD </h1>
-              <h1 className="small-font"> EMAIL </h1>
+              <h1 className="guest-info"> Author: Guest </h1>
             </div>
           </div>
 
-          {/* <div className="button-bar">
-            <Button2 value="NEW"/>
-          </div> */}
-
+          </div>
+          <div className="taper"></div>
         </div>
-              <div className="taper"></div>
+      )}
+    }
+
+    return (
+      <div>
+        {renderUser()}
       </div>
     )
   }
 }
+
+export default connect((state) => {
+  return {
+    userID: state.userData.userid
+  }
+}, {})(Profile);

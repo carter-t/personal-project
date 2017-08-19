@@ -1,7 +1,7 @@
 create table if not exists novels
 (
   novelID serial primary key,
-  authID varchar(80) not null unique,
+  authID varchar(80) not null,
   novelTitle varchar(40) not null unique,
   novelVolume varchar(40),
   novelGenre varchar(40),

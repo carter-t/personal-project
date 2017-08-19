@@ -44,12 +44,17 @@
   padding: 3vmin;
   border: 3px solid $color2;
   border-radius: 25px;
-  @include form(50%, 40vh);
+  @include form(65%, 40vh);
 }
 
-.fat-font {
-  margin-bottom: 3vmin;
+.info-line {
+  margin-top: 5vmin;
   @include text($font1, 7vmin, 600, $color2);
+}
+
+.guest-info {
+  margin-top: 5vmin;
+  @include text($font1, 12vmin, 600, $color2);
 }
 
 .small-font {

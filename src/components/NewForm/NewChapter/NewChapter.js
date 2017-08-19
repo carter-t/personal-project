@@ -3,7 +3,7 @@ import './../_NewForm.scss';
 
 import {Button2} from './../../Button/Button.js';
 
-export default class NewStory extends Component {
+export default class NewChapter extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -102,39 +102,17 @@ export default class NewStory extends Component {
       <div>
 
         <div className="wrapper">
-          <div className="category"> NEW STORY </div>
+          <div className="category"> NEW CHAPTER </div>
 
           <div className="container">
             <div>
               <form className="lineup">
-                <input className="descriptor" placeholder="Title"
+                <input className="descriptor" placeholder="Novel Title"
                   onChange={ (e) => this.updateFirstName(e.target.value) }/>
                 <input className="descriptor" placeholder="Volume"
                   onChange={ (e) => this.updateLastName(e.target.value) }/>
-                <input className="descriptor" placeholder="Genre"
+                <input className="descriptor" placeholder="Chapter #"
                   onChange={ (e) => this.updateCharTitle(e.target.value) }/>
-              </form>
-
-              <form className="sixty">
-                <div className="caption"> WORLDS
-                  <div className="checkform"><input type="checkbox" className="checkbox" value="World"
-                    onChange={ (e) => this.updateCharRole(e.target.value) }/> World </div>
-                </div>
-
-                <div className="caption"> FACTIONS
-                  <div className="checkform"><input type="checkbox" className="checkbox" value="Factions"
-                    onChange={ (e) => this.updateCharValues(e.target.value) }/> Factions </div>
-                </div>
- 
-                <div className="caption"> PLACES
-                  <div className="checkform"><input type="checkbox" className="checkbox" value="Places"
-                    onChange={ (e) => this.updateCharAbility(e.target.value) }/> Places </div>
-                </div>
-
-                <div className="caption"> PEOPLE
-                  <div className="checkform"><input type="checkbox" className="checkbox" value="People"
-                    onChange={ (e) => this.updateCharAbility(e.target.value) }/> People </div>
-                </div>
               </form>
             </div>
 
@@ -145,8 +123,8 @@ export default class NewStory extends Component {
           </div>
 
           <div className="button-bar">
-            <button className="button2" value="ADD"> ADD </button>
-            <button className="button2" value="START"> START </button>
+            <Button2 value="ADD"/>
+            <Button2 value="START"/>
           </div>
 
         </div>
