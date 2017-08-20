@@ -6,9 +6,7 @@ class Header extends Component {
 
   componentDidMount() {
     this.props.getUser();
-    // this.props.getNovels().then(novels => {
-    //   console.log('NOVELS:', novels)
-    // });
+    this.props.getNovels();
   }
 
   render() {
@@ -34,6 +32,8 @@ class Header extends Component {
 }
 
 export default connect((state) => {
+  console.log('userData:', state.userData)
+  console.log('novelData:', state.novelData);
   return {
     userData: state.userData,
     novelData: state.novelData

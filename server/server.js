@@ -19,13 +19,27 @@ passport.use(new Auth0Strategy({
   callbackURL: config.callbackURL
 }, (accessToken, refreshToken, extraParams, profile, done) => {
   let db = app.get('db');
+
   db.usersTable.readUser([profile.id]).then(res => {
     if(!res.length) {
       db.usersTable.createUser([profile.id, profile.displayName, profile.emails[0].value, profile.picture]);
-      // db.novelsTable.createNovel([config.authid, 'novel 1', 'a', 'b', 'c', 'd', 'e', 'f', 'g']);
+      // db.novelsTable.createNovel([profile.id, 'novel 1', 'a', 'b', 'c', 'd', 'e', 'f', 'g']);
     }
   return done(null, profile);
   });
+
+  app.get('/userData', (req, res) => {
+    db.usersTable.readUser([profile.id]).then(userData => {
+      res.send(userData);
+    });
+  });
+
+  app.get('/novelData', (req, res) => {
+    db.novelsTable.readAllNovels([profile.id]).then(novelData => {
+      res.send(novelData);
+    });
+  });
+
 }));
 
 app.get('/auth', passport.authenticate('auth0'));
@@ -40,16 +54,21 @@ passport.deserializeUser((profileFromSession, done) => {
   done(null, profileFromSession);
 });
 
+app.post('/novelData', (a, b, c, d, e, f, g, h, i) => {
+  db.novelsTable.createNovel([a, b, c, d, e, f, g, h, i]);
+});
+
 // app.get('/userData', (req, res) => {
 //   res.send(req.user);
 // });
 
-app.get('/userData', (req, res) => {
-  let db = app.get('db');
-  db.usersTable.readUser([config.authid]).then(userData => {
-    res.send(userData);
-  });
-});
+// app.get('/userData', (req, res) => {
+//   let db = app.get('db');
+//   let passport
+//   db.usersTable.readUser([config.authid]).then(userData => {
+//     res.send(userData);
+//   });
+// });
 
 // app.get('/novels', (req, res) => {
 //   const db = app.get('db');

@@ -1,1 +1,1 @@
-select * from novels;
+select * from novels where authID = $1;

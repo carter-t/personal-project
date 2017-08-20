@@ -25,7 +25,6 @@ class UserProfile extends Component {
 
 export default connect((state) => {
   return {
-    userID: state.userData.userid,
     userImage: state.userData.userimage,
     userName: state.userData.username,
     userEmail: state.userData.useremail

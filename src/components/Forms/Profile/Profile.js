@@ -37,6 +37,6 @@ class Profile extends Component {
 
 export default connect((state) => {
   return {
-    userID: state.userData.userid
+    userID: state.userData
   }
 }, {})(Profile);

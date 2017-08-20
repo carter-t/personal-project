@@ -14,6 +14,8 @@ import Factions from './../Forms/Factions/Factions.js';
 import Places from './../Forms/Places/Places.js';
 import People from './../Forms/People/People.js';
 
+import SetStory from './../SetForm/SetStory/SetStory.js';
+
 import Editor from './../Editor/Editor.js';
 
 class Landing extends Component {
@@ -41,6 +43,8 @@ class Landing extends Component {
         case 'FACTIONS': return <Factions/>
         case 'PLACES': return <Places/>
         case 'PEOPLE': return <People/>
+
+        case 'STORY': return <SetStory/>
 
         default: return <Editor/>
       }
@@ -92,8 +96,8 @@ class Landing extends Component {
             <button value="NOVELS" className="button"
               onClick={ (e) => this.updateContent(e.target.value)}> NOVELS </button>
               <div className="break"></div>
-            <button value="CHAPTERS" className="button"
-              onClick={ (e) => this.updateContent(e.target.value)}> CHAPTERS </button>
+            <button value="STORY" className="button"
+              onClick={ (e) => this.updateContent(e.target.value)}> STORY </button>
               <div className="break"></div>
             <button value="RANDOM" className="button"
               onClick={ (e) => this.updateContent(e.target.value)}> RANDOM </button>

@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
+import {connect} from 'react-redux';
 import NewStory from './../../NewForm/NewStory/NewStory.js';
 
-export default class Novels extends Component {
+class Novels extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -32,7 +33,7 @@ export default class Novels extends Component {
           <div className="category"> NOVELS </div>
             <div className="item-container">
               <div className="single-item">
-                <button className="item-title button3 round-left"> NOVEL TITLE </button>
+                <button className="item-title button3 round-left"> {this.props.novelTitle} </button>
                 <div className="item-menu-small">
                   <button className="button3 round-right"> DELETE </button>
                 </div>
@@ -50,3 +51,9 @@ export default class Novels extends Component {
     )
   }
 }
+
+export default connect((state) => {
+  return {
+    novelTitle: state.novelData.noveltitle
+  }
+}, {})(Novels);
