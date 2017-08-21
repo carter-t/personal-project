@@ -1,0 +1,1 @@
+select * from factions where factionlID = $1;

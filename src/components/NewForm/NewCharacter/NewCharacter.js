@@ -1,9 +1,8 @@
 import React, {Component} from 'react';
-import './../_NewForm.scss';
+import {setPerson} from './../../../dux/reducer.js';
+import {connect} from 'react-redux';
 
-import {Button2} from './../../Button/Button.js';
-
-export default class NewCharacter extends Component {
+class NewCharacter extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -219,13 +218,34 @@ export default class NewCharacter extends Component {
           </div>
 
           <div className="button-bar">
-            <Button2 value="ADD"/>
-            <Button2 value="SAVE"/>
+            <button className="button2"
+              onClick={ () => this.props.setPerson(
+                this.props.authID,
+                this.state.firstName,
+                this.state.lastName,
+                this.state.charTitle,
+                this.state.charAge,
+                this.state.charGender,
+                this.state.charRace,
+                this.state.charAlign,
+                this.state.charMantra,
+                this.state.charTemp,
+                this.state.charRole,
+                this.state.charValues,
+                this.state.charAbility,
+                this.state.charDesc,
+                this.state.charStory
+              )}> SAVE </button>
           </div>
 
         </div>
-              <div className="taper"></div>
       </div>
     )
   }
 }
+
+export default connect((state) => {
+  return {
+    authID: state.userData.authid
+  }
+}, {setPerson})(NewCharacter);

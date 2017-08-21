@@ -1,9 +1,8 @@
 import React, {Component} from 'react';
-import './../_NewForm.scss';
+import {setPlace} from './../../../dux/reducer.js';
+import {connect} from 'react-redux';
 
-import {Button2} from './../../Button/Button.js';
-
-export default class NewPlace extends Component {
+class NewPlace extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -109,6 +108,8 @@ export default class NewPlace extends Component {
                 </form>
 
                 <div className="caption"> LANDSCAPE
+                  <div className="checkform"><input type="checkbox" className="checkbox" value="Urban"
+                    onChange={ (e) => this.updatePlaceLand(e.target.value) }/> Urban </div>
                   <div className="checkform"><input type="checkbox" className="checkbox" value="Coast"
                     onChange={ (e) => this.updatePlaceLand(e.target.value) }/> Coast </div>
                   <div className="checkform"><input type="checkbox" className="checkbox" value="Hills/Mountains"
@@ -155,13 +156,28 @@ export default class NewPlace extends Component {
           </div>
 
           <div className="button-bar">
-            <Button2 value="ADD"/>
-            <Button2 value="SAVE"/>
+            <button className="button2"
+              onClick={ () => this.props.setPlace(
+                this.props.authID,
+                this.state.placeName,
+                this.state.placeEra,
+                this.state.placeLocation,
+                this.state.placeType,
+                this.state.placeLand,
+                this.state.placeContext,
+                this.state.placeDesc,
+                this.state.placeOrigin
+              )}> SAVE </button>
           </div>
 
         </div>
-              <div className="taper"></div>
       </div>
     )
   }
 }
+
+export default connect((state) => {
+  return {
+    authID: state.userData.authid
+  }
+}, {setPlace})(NewPlace);

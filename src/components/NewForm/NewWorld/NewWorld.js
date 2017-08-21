@@ -1,9 +1,8 @@
 import React, {Component} from 'react';
-import './../_NewForm.scss';
+import {setWorld} from './../../../dux/reducer.js';
+import {connect} from 'react-redux';
 
-import {Button2} from './../../Button/Button.js';
-
-export default class NewWorld extends Component {
+class NewWorld extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -139,13 +138,28 @@ export default class NewWorld extends Component {
           </div>
 
           <div className="button-bar">
-            <Button2 value="ADD"/>
-            <Button2 value="SAVE"/>
+            <button className="button2"
+              onClick={ () => this.props.setWorld(
+                this.props.authID,
+                this.state.worldName,
+                this.state.worldEra,
+                this.state.worldUni,
+                this.state.worldLand,
+                this.state.worldPractice,
+                this.state.worldInhab,
+                this.state.worldDesc,
+                this.state.worldLore
+              )}> SAVE </button>
           </div>
 
         </div>
-              <div className="taper"></div>
       </div>
     )
   }
 }
+
+export default connect((state) => {
+  return {
+    authID: state.userData.authid
+  }
+}, {setWorld})(NewWorld);

@@ -25,6 +25,7 @@
 }
 
 .button3 {
+  border-radius: 25px;
   background: $color3;
   @include fill;
   @include text($font1, 5vmin, 600, $color2);

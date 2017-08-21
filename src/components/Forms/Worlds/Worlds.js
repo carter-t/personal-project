@@ -1,11 +1,19 @@
 import React, {Component} from 'react';
-import NewWorld from './../../NewForm/NewWorld/NewWorld.js';
+import {connect} from 'react-redux';
 
-export default class Worlds extends Component {
+import NewWorld from './../../NewForm/NewWorld/NewWorld.js';
+import AddWorld from './AddWorld.js';
+
+import WorldOne from './../../SetForm/SetWorld/WorldOne.js';
+import WorldTwo from './../../SetForm/SetWorld/WorldTwo.js';
+import WorldThree from './../../SetForm/SetWorld/WorldThree.js';
+
+class Worlds extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      new: 'NEW'
+      new: 'NEW',
+      set: 'NONE'
     }
   }
 
@@ -15,6 +23,26 @@ export default class Worlds extends Component {
     }
     else if(this.state.new === 'CANCEL') {
       this.setState({new: 'NEW'});
+    }
+  }
+
+  updateSet(value) {
+    if(this.state.set === 'SET') {
+      this.setState({set: 'CLOSE'});
+    }
+    else if(this.state.set === 'CLOSE') {
+      this.setState({set: 'SET'});
+    }
+
+    switch(value) {
+      case 'ONE':
+        return this.setState({set: 'ONE'});
+      case 'TWO':
+        return this.setState({set: 'TWO'});
+      case 'NONE':
+        return this.setState({set: 'NONE'});
+      default:
+        return this.setState({set: 'NONE'});
     }
   }
 
@@ -51,3 +79,18 @@ export default class Worlds extends Component {
     )
   }
 }
+
+export default connect((state) => {
+  return {
+    novelOneTitle: state.novelOne.noveltitle,
+    novelOneVolume: state.novelOne.novelvolume,
+
+    novelTwoTitle: state.novelTwo.noveltitle,
+    novelTwoVolume: state.novelTwo.novelvolume,
+
+    novelThreeTitle: state.novelThree.noveltitle,
+    novelThreeVolume: state.novelThree.novelvolume,
+
+    novelFour: state.novelFour
+  }
+}, {})(Novels);

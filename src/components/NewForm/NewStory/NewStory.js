@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
-// import {postNovel} from './../../../dux/reducer.js';
+import {setStory} from './../../../dux/reducer.js';
 import {connect} from 'react-redux';
-import axios from 'axios';
 
 class NewStory extends Component {
   constructor(props) {
@@ -79,10 +78,6 @@ class NewStory extends Component {
     this.setState({storySynopsis: event});
   }
 
-  postNovel(a, b, c, d, e, f, g, h, i) {
-    axios.post('/novelData', (a, b, c, d, e, f, g, h, i));
-  }
-
   render() {
     return (
       <div>
@@ -131,9 +126,8 @@ class NewStory extends Component {
           </div>
 
           <div className="button-bar">
-            <button className="button2" value="ADD"> ADD </button>
             <button className="button2"
-              onClick={ () => this.postNovel(
+              onClick={ () => this.props.setStory(
                 this.props.authID,
                 this.state.storyTitle,
                 this.state.storyVolume,
@@ -142,12 +136,11 @@ class NewStory extends Component {
                 this.state.storyFactions,
                 this.state.storyPlaces,
                 this.state.storyPeople,
-                this.state.storySynopsis,
+                this.state.storySynopsis
               )}> SAVE </button>
           </div>
 
         </div>
-              <div className="taper"></div>
       </div>
     )
   }
@@ -157,4 +150,4 @@ export default connect((state) => {
   return {
     authID: state.userData.authid
   }
-}, {})(NewStory);
+}, {setStory})(NewStory);

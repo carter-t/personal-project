@@ -6,7 +6,7 @@ class Profile extends Component {
   render(state) {
 
     const renderUser = (state) => {
-      if(this.props.userID) {
+      if(this.props.userData) {
         return <UserProfile/>
       }
       else {return (
@@ -37,6 +37,6 @@ class Profile extends Component {
 
 export default connect((state) => {
   return {
-    userID: state.userData
+    userData: state.userData
   }
 }, {})(Profile);

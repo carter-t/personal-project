@@ -1,11 +1,18 @@
 import React, {Component} from 'react';
+import {connect} from 'react-redux';
+
 import NewPlace from './../../NewForm/NewPlace/NewPlace.js';
+import AddPlace from './AddPlace.js';
+
+import PlaceOne from './../../SetForm/SetPlace/PlaceOne.js';
+import PlaceTwo from './../../SetForm/SetPlace/PlaceTwo.js';
 
 export default class Places extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      new: 'NEW'
+      new: 'NEW',
+      set: 'NONE'
     }
   }
 
@@ -15,6 +22,24 @@ export default class Places extends Component {
     }
     else if(this.state.new === 'CANCEL') {
       this.setState({new: 'NEW'});
+    }
+  }
+
+  updateSet(value) {
+    if(this.state.set === 'SET') {
+      this.setState({set: 'CLOSE'});
+    }
+    else if(this.state.set === 'CLOSE') {
+      this.setState({set: 'SET'});
+    }
+
+    switch(value) {
+      case 'ONE':
+        return this.setState({set: 'ONE'});
+      case 'NONE':
+        return this.setState({set: 'NONE'});
+      default:
+        return this.setState({set: 'NONE'});
     }
   }
 

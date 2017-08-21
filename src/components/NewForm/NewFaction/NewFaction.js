@@ -1,9 +1,8 @@
 import React, {Component} from 'react';
-import './../_NewForm.scss';
+import {setFaction} from './../../../dux/reducer.js';
+import {connect} from 'react-redux';
 
-import {Button2} from './../../Button/Button.js';
-
-export default class NewFaction extends Component {
+class NewFaction extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -145,13 +144,28 @@ export default class NewFaction extends Component {
           </div>
 
           <div className="button-bar">
-            <Button2 value="ADD"/>
-            <Button2 value="SAVE"/>
+            <button className="button2"
+              onClick={ () => this.props.setFaction(
+                this.props.authID,
+                this.state.factionName,
+                this.state.factionAlign,
+                this.state.factionMantra,
+                this.state.factionType,
+                this.state.factionPowers,
+                this.state.factionHold,
+                this.state.factionDesc,
+                this.state.factionOrigin
+              )}> SAVE </button>
           </div>
 
         </div>
-              <div className="taper"></div>
       </div>
     )
   }
 }
+
+export default connect((state) => {
+  return {
+    authID: state.userData.authid
+  }
+}, {setFaction})(NewFaction);

@@ -17,13 +17,13 @@
 }
 
 .paragraph {
-  margin: 5vmin 0 0 3vmin;
+  margin: 10vmin 0 0 3vmin;
   padding: 3vmin;
   border: 1px solid $color2;
   border-radius: 25px;
   background: $color1;
   @include form(95%, 100%);
-  @include text($font2, 3vmin, 400, $color5);
+  @include text($font2, 3vmin, 400, $color2);
 }
 
 .dataform {

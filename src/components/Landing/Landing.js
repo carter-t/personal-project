@@ -5,8 +5,6 @@ import Header from './../Header/Header.js';
 import Search from './../Search/Search.js';
 
 import Novels from './../Forms/Novels/Novels.js';
-import Chapters from './../Forms/Chapters/Chapters.js';
-import Random from './../Forms/Random/Random.js';
 import Profile from './../Forms/Profile/Profile.js';
 
 import Worlds from './../Forms/Worlds/Worlds.js';
@@ -14,15 +12,14 @@ import Factions from './../Forms/Factions/Factions.js';
 import Places from './../Forms/Places/Places.js';
 import People from './../Forms/People/People.js';
 
-import SetStory from './../SetForm/SetStory/SetStory.js';
-
-import Editor from './../Editor/Editor.js';
+import Welcome from './../Welcome/Welcome.js';
 
 class Landing extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      content: ''
+      content: '',
+      loggedIn: ''
     }
     this.updateContent = this.updateContent.bind(this);
   }
@@ -35,18 +32,14 @@ class Landing extends Component {
     const renderForm = () => {
       switch(this.state.content) {
         case 'NOVELS': return <Novels/>
-        case 'CHAPTERS': return <Chapters/>
         case 'PROFILE': return <Profile/>
-        case 'RANDOM': return <Random/>
 
         case 'WORLDS': return <Worlds/>
         case 'FACTIONS': return <Factions/>
         case 'PLACES': return <Places/>
         case 'PEOPLE': return <People/>
 
-        case 'STORY': return <SetStory/>
-
-        default: return <Editor/>
+        default: return <Welcome/>
       }
     };
 
@@ -94,13 +87,7 @@ class Landing extends Component {
 
           <div className="side">
             <button value="NOVELS" className="button"
-              onClick={ (e) => this.updateContent(e.target.value)}> NOVELS </button>
-              <div className="break"></div>
-            <button value="STORY" className="button"
-              onClick={ (e) => this.updateContent(e.target.value)}> STORY </button>
-              <div className="break"></div>
-            <button value="RANDOM" className="button"
-              onClick={ (e) => this.updateContent(e.target.value)}> RANDOM </button>
+              onClick={ (e) => this.updateContent(e.target.value)}> STORIES </button>
               <div className="break"></div>
             <button value="PROFILE" className="button"
               onClick={ (e) => this.updateContent(e.target.value)}> PROFILE </button>
@@ -114,6 +101,6 @@ class Landing extends Component {
 
 export default connect((state) => {
   return {
-    state: ''
+
   }
 }, {})(Landing);

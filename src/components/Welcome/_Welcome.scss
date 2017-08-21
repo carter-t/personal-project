@@ -7,24 +7,17 @@
 }
 
 .novel {
-  padding-top: 3vmin;
-  @include form(100%, 5vh);
+  padding-top: 10vmin;
+  @include form(100%, 10vh);
   @include flex(center, center);
-  @include text($font1, 5vmin, 600, $color2);
+  @include text($font1, 10vmin, 600, $color2);
 }
 
 .volume {
-  margin-top: 3vmin;
-  @include fill;
+  margin-top: 10vmin;
+  @include form(100%, 10vh);
   @include flex(center, center);
-}
-
-.page {
-  padding: 3vmin;
-  background: $color1;
-  border-radius: 25px;
-  @include form(95%, 40vh);
-  @include text($font2, 3vmin, 400, $color5);
+  @include text($font1, 5vmin, 600, $color2);
 }
 
 .cut {

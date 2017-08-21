@@ -1,12 +1,14 @@
 import React, {Component} from 'react';
-import {getUser, getNovels} from './../../dux/reducer.js';
+import {getUser, getNovelOne, getNovelTwo, getNovelThree} from './../../dux/reducer.js';
 import {connect} from 'react-redux';
 
 class Header extends Component {
 
   componentDidMount() {
     this.props.getUser();
-    this.props.getNovels();
+    this.props.getNovelOne();
+    this.props.getNovelTwo();
+    this.props.getNovelThree();
   }
 
   render() {
@@ -33,9 +35,13 @@ class Header extends Component {
 
 export default connect((state) => {
   console.log('userData:', state.userData)
-  console.log('novelData:', state.novelData);
+  console.log('novelOne:', state.novelOne);
+  console.log('novelTwo:', state.novelTwo);
+  console.log('novelThree:', state.novelThree);
   return {
     userData: state.userData,
-    novelData: state.novelData
+    novelOne: state.novelOne,
+    novelTwo: state.novelTwo,
+    novelThree: state.novelThree
   }
-}, {getUser, getNovels})(Header);
+}, {getUser, getNovelOne, getNovelTwo, getNovelThree})(Header);
