@@ -1,1 +1,0 @@
-select * from people where charID = $1;

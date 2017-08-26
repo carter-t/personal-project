@@ -1,0 +1,62 @@
+// Animations
+
+  // .div1 {animation-timing-function: linear;}
+  // .div2 {animation-timing-function: ease;}
+  // .div3 {animation-timing-function: ease-in;}
+  // .div4 {animation-timing-function: ease-out;}
+  // .div5 {animation-timing-function: ease-in-out;}
+
+@mixin time($t) {
+  -webkit-transition: $t;
+  -moz-transition: $t;
+  -o-transition: $t;
+  -ms-transition: $t;
+  transition: $t;
+}
+
+@mixin animate($n, $i, $t, $r) {
+  animation-name: $n;
+  animation-delay: $i; // Seconds
+  animation-duration: $t; //Seconds
+  animation-iteration-count: $r; // # or Infinite
+  // animation-direction: reverse / alternate;
+}
+
+@keyframes slideLTR {
+  0%    {left:-30vmin;}
+  100%  {left:0vmin;}
+}
+
+@keyframes fourSquare {
+  0%    {background: $s0; left:-70vmin; top:-10vmin;}
+  25%   {background: $s2; left:70vmin; top:-10vmin;}
+  50%   {background: $s1; left:70vmin; top:15vmin;}
+  75%   {background: $s2; left:-70vmin; top:15vmin;}
+  100%  {background: $s0; left:-70vmin; top:-10vmin;}
+}
+
+@mixin rotate($x) {
+  -webkit-transform: rotate($x + 0deg);
+  -moz-transform: rotate($x + 0deg);
+  -o-transform: rotate($x + 0deg);
+  -ms-transform: rotate($x + 0deg);
+  transform: rotate($x + 0deg);
+}
+
+@mixin flipV {
+  -moz-transform: scaleY(-1);
+  -o-transform: scaleY(-1);
+  -webkit-transform: scaleY(-1);
+  transform: scaleY(-1);
+  filter: FlipV;
+  -ms-filter: "FlipV";
+}
+
+@mixin flipH {
+  -moz-transform: scaleX(-1);
+  -o-transform: scaleX(-1);
+  -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
+  filter: FlipH;
+  -ms-filter: "FlipH";
+}

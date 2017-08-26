@@ -21,7 +21,7 @@ time, mark, audio, video {
 	font-size: 100%;
 	font: inherit;
 	vertical-align: baseline;
-  box-sizing: border-box;
+	box-sizing: border-box;
 }
 // HTML5 display-role reset for older browsers
 article, aside, details, figcaption, figure, 
@@ -29,6 +29,8 @@ footer, header, hgroup, menu, nav, section {
 	display: block;
 }
 body {
+	overflow-y: scroll;
+	// overflow-x: hidden;
 	line-height: 1;
 }
 ol, ul {
@@ -46,7 +48,15 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
-button:focus {outline:0;}
-button {border:none}
+a {
+  color: inherit;
+  text-decoration: inherit;
+}
+
+input {box-sizing:border-box;}
 input:focus {outline:0;}
+
+button:hover {cursor: pointer;}
+button:focus {outline:0;}
+
 textarea:focus {outline: 0;}

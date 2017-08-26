@@ -1,11 +1,12 @@
-import {createStore, applyMiddleware} from 'redux';
+import {createStore, applyMiddleware, combineReducers} from 'redux';
 import promiseMiddleware from 'redux-promise-middleware';
-import reducer from './reducer';
+import switchboard from './switchboard.js';
+import data from './data.js';
 
-// include import combineReducers
-// const reducer = combineReducers({
-//   reducer: reducer
-// });
+const reducer = combineReducers({
+  switchboard: switchboard,
+  data: data
+});
 
 export default createStore(
   reducer, {},

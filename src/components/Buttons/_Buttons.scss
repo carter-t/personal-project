@@ -1,0 +1,72 @@
+.btn1 {
+  @include form(100px, 40px);
+  @include colors($s4, $s0);
+  @include text($text1, 25px);
+} .btn1:active {
+    @include colors($s3, $s0);
+  } .btn1:hover {
+      
+    }
+
+.btn1A {
+  @include form(100px, 40px);
+  @include colors($s4, $s0);
+  @include text($text1, 25px);
+  border-radius: 25px;
+} .btn1A:active {
+    @include colors($s3, $s0);
+  } .btn1A:hover {
+      
+    }
+
+.btn2 {
+  @include form(150px, 60px);
+  @include colors($s4, $s0);
+  @include text($text1, 40px);
+} .btn2:active {
+    @include colors($s3, $s0);
+  } .btn2:hover {
+      
+    }
+
+.btn2A {
+  @include form(150px, 60px);
+  @include colors($s4, $s0);
+  @include text($text1, 40px);
+  border-radius: 25px;
+} .btn2A:active {
+    @include colors($s3, $s0);
+  } .btn2A:hover {
+      
+    }
+
+.btn3 {
+  @include form(80px, 30px);
+  @include colors($s4, $s0);
+  @include text($text1, 20px);
+} .btn3:active {
+    @include colors($s3, $s0);
+  } .btn3:hover {
+      
+    }
+
+.btn3A {
+  @include form(80px, 30px);
+  @include colors($s4, $s0);
+  @include text($text1, 20px);
+  border-radius: 25px;
+} .btn3A:active {
+    @include colors($s3, $s0);
+  } .btn3A:hover {
+      
+    }
+
+// Mobile Filter
+@media (max-width: 800px) {
+  
+  }
+  
+  // Desktop Filter
+  @media (min-width: 800px) {
+  
+  }

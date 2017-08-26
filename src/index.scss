@@ -1,18 +1,21 @@
-// SCSS Index
+// SCSS INDEX
 
 // Libraries
 @import './styles/_reset.scss';
-@import url('https://fonts.googleapis.com/css?family=Saira:400,600');
+@import url('https://fonts.googleapis.com/css?family=Bitter');
+@import url('https://fonts.googleapis.com/css?family=Baloo+Bhaina');
+@import url('https://fonts.googleapis.com/css?family=Iceland');
+@import url('https://fonts.googleapis.com/css?family=Gruppo');
 @import './styles/_themes.scss';
+@import './styles/_animate.scss';
 
 // Components
-@import './components/Landing/_Landing.scss';
-@import './components/Header/_Header.scss';
+@import './components/Body/Landing/_Landing.scss';
+@import './components/Body/Header/_Header.scss';
+@import './components/Body/Slider/_Slider.scss';
+@import './components/Body/Break/_Break.scss';
+@import './components/Body/Footer/_Footer.scss';
 
-@import './components/NewForm/_NewForm.scss';
-@import './components/Forms/_Forms.scss';
-@import './components/SetForm/_SetForm.scss';
-@import './components/Welcome/_Welcome.scss';
-
-@import './components/Search/_Search.scss';
-@import './components/Button/_Button.scss';
+@import './components/Pages/Home/_Home.scss';
+// @import './components/Cube/_Cube.scss';
+@import './components/Buttons/_Buttons.scss';

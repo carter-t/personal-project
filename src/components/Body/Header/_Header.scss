@@ -1,0 +1,88 @@
+.header {
+
+  .overlay {
+    @include top;
+    @include form(100%, 15vh);
+    @include colors($c0, $s0);
+    @include text($text1, 8vmin);
+    @include flex(default, center);
+    border-bottom: 1vmin solid $c1;
+    z-index:1000;
+  }
+
+  .nav {
+    @include form(5vw, 100%);
+    @include flex(center, center);
+    font-size: 5vmin;
+    padding-top: 1vmin;
+  }
+
+  .menu {
+    color: $c5-i;
+  }
+    
+  .title {
+    @include fill;
+    @include flex(space-between, center);
+  }
+
+  .log {
+    @include form(8vw, 100%);
+    @include flex(default, flex-start);
+    padding-top: 1vmin;
+    font-size: 5vmin;
+  }
+
+  .line {
+    color: $c5-i;
+  }
+
+  .static {
+    @include colors($_T, $s1);
+    @include form(100%, 15vh);
+  }
+}
+
+// Mobile Filter
+@media (max-width: 800px) {
+  .header {
+    .overlay {
+      height: 12vh;
+      font-size: 12vmin;
+      padding-left: 5vmin;
+    }
+
+    .nav {
+      font-size: 7vmin;
+      margin-right: 5vmin;
+    }
+
+    .log {
+      font-size: 7vmin;
+      width: 25vw;
+    }
+
+    .static {
+      height: 10vh;
+    }
+  }
+}
+
+// Desktop Filter
+@media (min-width: 800px) {
+  .header {
+    .overlay {
+
+    }
+
+    .menu:hover {
+      color: $c2-i;
+      cursor: pointer;
+    }
+
+    .line:hover {
+      color: $c2-i;
+      cursor: pointer;
+    }
+  }
+}

@@ -1,0 +1,1 @@
+select * from users where usertag = $1;

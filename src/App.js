@@ -1,9 +1,9 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import {HashRouter, Route} from 'react-router-dom';
 
-import Landing from './components/Landing/Landing';
+import Landing from './components/Body/Landing/Landing';
 
-export default class App extends Component {
+class App extends Component {
   render() {
     return (
       <HashRouter>
@@ -16,3 +16,5 @@ export default class App extends Component {
     );
   }
 }
+
+export default App;

@@ -1,1 +1,0 @@
-select * from worlds where worldID = $1;

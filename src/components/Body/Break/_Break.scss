@@ -1,0 +1,18 @@
+.break {
+  @include form(100%, 8vh);
+  @include colors($c1, $s0);
+}
+
+// Mobile Filter
+@media (max-width: 800px) {
+  .break {
+    height: 5vh;
+  }
+}
+
+// Desktop Filter
+@media (min-width: 800px) {
+  .break {
+
+  }
+}

@@ -1,12 +1,49 @@
 // Themes
 
-$color1: black;
-$color2: white;
-$color3: #424242;
-$color4: #034D99;
-$color5: #33ff66;
-$font1: 'Saira', sans-serif;
-$font2: 'Courier New', sans-serif;
+$c0: #34495E;
+$c1: #1F618D;
+$c2: #6C3483;
+$c3: #148F77;
+$c4: #0E6655;
+$c5: #B03A2E;
+
+$c0-i: #cbb6a1;
+$c1-i: #e09e72;
+$c2-i: #93cb7c;
+$c3-i: #eb7088;
+$c4-i: #f199aa;
+$c5-i: #4fc5d1;
+
+$s0: #fff;
+$s1: #000;
+$s2: #555;
+$s3: #888;
+$s4: #aaa;
+$s5: #ccc;
+
+$_CG: #33ff66;
+$_T: transparent;
+
+$text1: 'Iceland', sans-serif;
+$text2: 'Bitter', serif;
+$text3: 'Baloo Bhaina', sans-serif;
+$text4: 'Gruppo', sans-serif;
+
+$console: 'Courier New', serif;
+
+// Desktop Filter
+@media (min-width: 800px) {
+  body::-webkit-scrollbar {
+    width: 1vw;
+    background: $c0;
+  }
+  body::-webkit-scrollbar-thumb {
+    background: $c1;
+  }
+  body::-webkit-scrollbar-thumb:hover {
+    background: $c5-i;
+  }
+}
 
 @mixin form($w, $h) {
   width: $w;
@@ -24,50 +61,74 @@ $font2: 'Courier New', sans-serif;
   align-items: $y;
 }
 
-@mixin text($font, $size, $weight, $color) {
-  font-family: $font;
-  font-size: $size;
-  font-weight: $weight;
-  color: $color;
+@mixin row($x, $y) {
+  display: flex;
+  justify-content: $x;
+  align-items: $y;
+}
+
+@mixin column($x, $y) {
+  display: flex;
+  flex-direction: column;
+  justify-content: $x;
+  align-items: $y;
+}
+
+@mixin fit {
+  display: flex;
+  justify-content: default;
+  align-items: default;
+}
+
+@mixin colors($b, $t) {
+  background: $b;
+  color: $t;
+}
+
+@mixin text($f, $s) {
+  font-family: $f;
+  font-size: $s;
 }
 
 @mixin image($url) {
   background-image: url($url);
   background-position: center center;
-  // background-attachment: fixed;
   background-size: cover;
   background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
-@mixin flipV {
-  -moz-transform: scaleY(-1);
-  -o-transform: scaleY(-1);
-  -webkit-transform: scaleY(-1);
-  transform: scaleY(-1);
-  filter: FlipV;
-  -ms-filter: "FlipV";
+// Slider
+
+@mixin slide($x-axis, $y-axis, $width, $height) {
+  position: fixed;
+  top: $y-axis;
+  margin-top: -$height / 2;
+  left: $x-axis;
+  margin-left: -$width / 2;
 }
 
-@mixin flipH {
-  -moz-transform: scaleX(-1);
-  -o-transform: scaleX(-1);
-  -webkit-transform: scaleX(-1);
-  transform: scaleX(-1);
-  filter: FlipH;
-  -ms-filter: "FlipH";
+@mixin top {
+  position: fixed;
+  top: 0;
 }
 
-@mixin rotate($x) {
-  -webkit-transform: rotate($x + 0deg);
-  -moz-transform: rotate($x + 0deg);
-  -o-transform: rotate($x + 0deg);
-  -ms-transform: rotate($x + 0deg);
-  transform: rotate($x + 0deg);
+@mixin bottom {
+  position: fixed;
+  bottom: 0;
 }
 
-@mixin corners {
-  border-top-left-radius: 25px;
-  border-top-right-radius: 25px;
-  border-bottom-left-radius: 25px;
-  border-bottom-right-radius: 25px;
+@mixin left {
+  position: fixed;
+  left: 0;
+}
+
+@mixin right {
+  position: fixed;
+  right: 0;
+}
+
+@mixin lift {
+  position: fixed;
+  z-index: 1000
 }

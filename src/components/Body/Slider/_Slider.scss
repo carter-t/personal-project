@@ -1,0 +1,61 @@
+.slider {
+  @include animate('slideLTR', 0, 0.5s, 1);
+  @include bottom;
+  @include form(15vw, 85vh);
+  @include colors($c1, $s0);
+  background: rgba(31, 97, 141, 0.9);
+  overflow-y: scroll;
+  z-index: 1000;
+
+  .column {
+    padding-bottom: 2vmin;
+  }
+
+  .title {
+    @include form(100%, 7vh);
+    @include flex(center, center);
+    @include text($text1, 4vmin);
+    color: $c2-i;
+  }
+
+  .row {
+    @include form(100%, 5vmin);
+    @include flex(center, center);
+    @include text($text4, 3vmin);
+  } .row:hover {
+      @include colors($c2-i, $s0);
+      font-weight: bold;
+      font-size: 4vmin;
+    }
+}
+
+.slider::-webkit-scrollbar {
+  width: 1.5vmin;
+  background: $c0;
+}
+.slider::-webkit-scrollbar-thumb {
+  background: $c5-i;
+}
+
+// Mobile Filter
+@media (max-width: 800px) {
+  .slider {
+    @include form(50vw, 88vh);
+
+    .title {
+      @include text($text1, 7vmin);
+    }
+
+    .row {
+      @include form(100%, 7vmin);
+      @include text($text4, 5vmin);
+    }
+  }
+}
+
+// Desktop Filter
+@media (min-width: 800px) {
+  .slider {
+    
+  }
+}

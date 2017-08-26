@@ -1,1 +1,0 @@
-select * from novels where novelID = $1;
