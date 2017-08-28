@@ -1,0 +1,64 @@
+.landing {
+  @include form(100%, 85vh);
+
+  .center {
+    @include fill;
+    @include flex(center, default);
+    @include image('./images/3kings.jpg');
+    padding-top: 5vh;
+  }
+
+  .content {
+    @include form(40vw, 70vh);
+    @include colors($c1, $s0);
+    @include column(default, center);
+    border-radius: 10px;
+    opacity: 0.95;
+    padding-top: 5vh;
+
+    .title {
+      @include text($text1, 60px);
+    }
+
+    .caption {
+      @include text($text2, 25px);
+      padding-top: 5vh;
+    }
+
+    .login {
+      @include text($text1, 120px);
+      color: $c5-i;
+      padding-top: 10vh;
+    } .login:hover {
+        color: $c2-i
+      }
+
+    .details {
+      @include text($text2, 25px);
+      padding-top: 5vh;
+    }
+  }
+
+  .side {
+    @include form(2vw, 112vh);
+    @include colors($c1, $s0);
+    opacity: 0.4;
+  } .left {
+      @extend .side;
+      @include left;
+    }
+    .right {
+      @extend .side;
+      @include right;
+    }
+}
+
+// Mobile Filter
+@media (max-width: 800px) {
+
+}
+
+// Desktop Filter
+@media (min-width: 800px) {
+
+}

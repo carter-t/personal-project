@@ -1,5 +1,5 @@
 import React from 'react';
-// import {Link} from 'react-router-dom';
+import {Link} from 'react-router-dom';
 
 export default function Slider() {
   return (
@@ -7,12 +7,13 @@ export default function Slider() {
 
       <section className="column">
         <h3 className="title"> Menu </h3>
-        <a href=""><div className="row"> Home </div></a>
-        <a href=""><div className="row"> Profile </div></a>
-        <a href=""><div className="row"> Projects </div></a>
+        <Link to="/"><div className="row"> Home </div></Link>
+        <Link to="/new"><div className="row"> New Cube </div></Link>
+        <Link to="/cubes"><div className="row"> Your Cubes </div></Link>
+        <Link to="/"><div className="row"> Profile </div></Link>
       </section>
 
-      <section className="column">
+      {/* <section className="column">
         <h3 className="title"> Tools </h3>
         <a href=""><div className="row"> Row </div></a>
         <a href=""><div className="row"> Row </div></a>
@@ -24,7 +25,7 @@ export default function Slider() {
         <a href=""><div className="row"> Row </div></a>
         <a href=""><div className="row"> Row </div></a>
         <a href=""><div className="row"> Row </div></a>
-      </section>
+      </section> */}
 
     </main>
   )

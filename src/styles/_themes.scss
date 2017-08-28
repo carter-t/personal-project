@@ -98,6 +98,33 @@ $console: 'Courier New', serif;
   background-attachment: fixed;
 }
 
+@mixin pic($url) {
+  background-image: url($url);
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+@mixin round-top($px) {
+  border-top-left-radius: $px;
+  border-top-right-radius: $px;
+}
+
+@mixin round-bottom($px) {
+  border-bottom-left-radius: $px;
+  border-bottom-right-radius: $px;
+}
+
+@mixin round-left($px) {
+  border-top-left-radius: $px;
+  border-bottom-left-radius: $px;
+}
+
+@mixin round-right($px) {
+  border-top-right-radius: $px;
+  border-bottom-right-radius: $px;
+}
+
 // Slider
 
 @mixin slide($x-axis, $y-axis, $width, $height) {

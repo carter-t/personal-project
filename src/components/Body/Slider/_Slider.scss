@@ -3,7 +3,6 @@
   @include bottom;
   @include form(15vw, 85vh);
   @include colors($c1, $s0);
-  background: rgba(31, 97, 141, 0.9);
   overflow-y: scroll;
   z-index: 1000;
 

@@ -1,1 +1,1 @@
-select * from users where usertag = $1;
+select * from users where tag = $1;

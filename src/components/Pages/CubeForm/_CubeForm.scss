@@ -1,0 +1,87 @@
+.cube-form {
+  @include form(100%, 85vh);
+  @include colors($s3, $s0);
+  @include flex(center, center);
+
+  .form {
+    @include form(100%, 85vh);
+    @include colors($c1, $s0);
+    border-radius: 10px;
+    padding-top: 2vh;
+  }
+
+  .creator {
+    @include form(100%, 10vh);
+    @include flex(center, center);
+  }
+
+  .form-title {
+    @include form(40%, 10vh);
+    @include text($text1, 70px);
+  }
+
+  .name {
+    @include form(500px, 70%);
+    @include colors($c0, $s0);
+    @include text($text2, 18px);
+    border-radius: 20px;
+    text-indent: 3vmin;
+    outline: none;
+  }
+
+  .form-wrap {
+    @include flex(center, default);
+    padding-top: 5vmin;
+    padding-left: 10vmin;
+  }
+
+  .column {
+    padding-right: 10vmin;
+  }
+
+  .selector {
+    @include form(100%, 10vh);
+    @include text($text1, 40px);
+    @include flex(default, center);
+    border-radius: 10px;
+    margin-bottom: 2vmin;
+  }
+
+  .type {
+    @include form(30%, 100%);
+    @include flex(default, center);
+    margin-right: 5vmin;
+  }
+
+  .dropdown {
+    @include form(200px, 50%);
+    @include colors($c0, $s0);
+    @include text($text2, 18px);
+    border-radius: 20px;
+    text-indent: 3vmin;
+    outline: none;
+  }
+
+  .media {
+    @include form(100%, 10vh);
+    @include round-bottom(10px);
+    @include column(center, center);
+  }
+
+  .submit {
+    @include form(100%, 15vh);
+    @include flex(space-around, center);
+  }
+
+  .save {
+    @include form(15vw, 10vh);
+    @include colors($c0, $c5-i);
+    @include text($text1, 50px);
+    border-radius: 10px;
+  } .save:hover {
+      @include colors($c5-i, $s0);
+    }
+    .save:active {
+      @include colors($s2, $c2-i);
+    }
+}

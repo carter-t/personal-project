@@ -1,0 +1,1 @@
+select * from cubes where tag = $1;

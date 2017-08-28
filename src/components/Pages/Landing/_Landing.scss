@@ -1,5 +1,5 @@
-.home {
-  @include form(100%, 120vh);
+.landing {
+  @include form(100%, 85vh);
 
   .center {
     @include fill;
@@ -21,6 +21,19 @@
     }
 
     .caption {
+      @include text($text2, 25px);
+      padding-top: 5vh;
+    }
+
+    .login {
+      @include text($text1, 120px);
+      color: $c5-i;
+      padding-top: 10vh;
+    } .login:hover {
+        color: $c2-i
+      }
+
+    .details {
       @include text($text2, 25px);
       padding-top: 5vh;
     }

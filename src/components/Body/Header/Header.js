@@ -1,15 +1,23 @@
 import React, {Component} from 'react';
-// import {Link} from 'react-router-dom';
+import {connect} from 'react-redux';
+import {getUser} from './../../../dux/data.js';
 
 import Slider from './../Slider/Slider.js';
 
-export default class Header extends Component {
+class Header extends Component {
   constructor(props) {
     super(props);
     this.state = {
       slider: false
     }
     this.updateSlider = this.updateSlider.bind(this);
+  }
+
+  
+  componentDidMount() {
+    this.props.getUser().then(user => {
+      console.log('USER:', user);
+    });
   }
 
   updateSlider() {
@@ -31,7 +39,7 @@ export default class Header extends Component {
           </nav>
 
           <section className="title">
-            <h1> Archetype </h1>
+            <h1> CUB3 </h1>
             <div className="log">
               <a className="line" href="http://localhost:3001/auth"> Login </a>
             </div>
@@ -44,3 +52,14 @@ export default class Header extends Component {
     )
   }
 }
+
+export default connect((state) => {
+  console.log('STATE:', state.userData);
+  return {
+    user: state.user,
+    // usertag: state.user.id,
+    // username: state.user.name,
+    // email: state.user.email,
+    // image: state.user.image
+  }
+}, {getUser})(Header);

@@ -38,7 +38,7 @@ passport.use(new Auth0Strategy({
 
 app.get('/auth', passport.authenticate('auth0'));
 app.get('/auth/callback', passport.authenticate('auth0', {
-  successRedirect: 'http://localhost:3000'}));
+  successRedirect: 'http://localhost:3000/#/new'}));
 
 passport.serializeUser((profile, done) => {
   done(null, profile);
@@ -48,9 +48,36 @@ passport.deserializeUser((profileFromSession, done) => {
   done(null, profileFromSession);
 });
 
+app.post('/api/cube', (req, res) => {
+  let db = app.get('db');
+  db.cubes.createCube([
+    req.body.tag,
+    req.body.name,
+
+    req.body.fronttype,
+    req.body.frontfile,
+
+    req.body.lefttype,
+    req.body.leftfile,
+
+    req.body.righttype,
+    req.body.rightfile,
+
+    req.body.backtype,
+    req.body.backfile,
+
+    req.body.toptype,
+    req.body.topfile,
+
+    req.body.bottomtype,
+    req.body.bottomfile,
+  ]);
+});
+
 massive(config.massive).then(db => {
     app.set('db', db);
     db.users.userSchema();
+    db.cubes.cubeSchema();
 
     app.listen(config.port, console.log('Portal #' + config.port));
 });

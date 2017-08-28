@@ -1,1 +1,1 @@
-insert into users (usertag, username, email, image) values ($1, $2, $3, $4);
+insert into users (tag, name, email, image) values ($1, $2, $3, $4);

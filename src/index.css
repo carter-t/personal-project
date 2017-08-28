@@ -187,7 +187,6 @@ textarea:focus {
   height: 85vh;
   background: #1F618D;
   color: #fff;
-  background: rgba(31, 97, 141, 0.9);
   overflow-y: scroll;
   z-index: 1000; }
   .slider .column {
@@ -256,10 +255,10 @@ textarea:focus {
   .footer {
     height: 12vh; } }
 
-.home {
+.landing {
   width: 100%;
-  height: 120vh; }
-  .home .center {
+  height: 85vh; }
+  .landing .center {
     width: 100%;
     height: 100%;
     display: flex;
@@ -271,7 +270,7 @@ textarea:focus {
     background-repeat: no-repeat;
     background-attachment: fixed;
     padding-top: 5vh; }
-  .home .content {
+  .landing .content {
     width: 40vw;
     height: 70vh;
     background: #1F618D;
@@ -283,97 +282,214 @@ textarea:focus {
     border-radius: 10px;
     opacity: 0.95;
     padding-top: 5vh; }
-    .home .content .title {
+    .landing .content .title {
       font-family: "Iceland", sans-serif;
       font-size: 60px; }
-    .home .content .caption {
+    .landing .content .caption {
       font-family: "Bitter", serif;
       font-size: 25px;
       padding-top: 5vh; }
-  .home .side, .home .left, .home .right {
+    .landing .content .login {
+      font-family: "Iceland", sans-serif;
+      font-size: 120px;
+      color: #4fc5d1;
+      padding-top: 10vh; }
+    .landing .content .login:hover {
+      color: #93cb7c; }
+    .landing .content .details {
+      font-family: "Bitter", serif;
+      font-size: 25px;
+      padding-top: 5vh; }
+  .landing .side, .landing .left, .landing .right {
     width: 2vw;
     height: 112vh;
     background: #1F618D;
     color: #fff;
     opacity: 0.4; }
-  .home .left {
+  .landing .left {
     position: fixed;
     left: 0; }
-  .home .right {
+  .landing .right {
     position: fixed;
     right: 0; }
 
-.btn1 {
-  width: 100px;
-  height: 40px;
-  background: #aaa;
+.showcase {
+  width: 100%;
+  height: 85vh;
+  background: #888;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: default; }
+  .showcase .control {
+    width: 80vw;
+    height: 30vh;
+    display: flex;
+    justify-content: space-around;
+    align-items: default;
+    margin-top: 25vh; }
+  .showcase .stack {
+    width: 100px;
+    height: 50vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center; }
+  .showcase .click {
+    width: 100px;
+    height: 100px;
+    font-family: "Iceland", sans-serif;
+    font-size: 5vmin;
+    background: #34495E;
+    color: #4fc5d1;
+    border-radius: 40%; }
+  .showcase .click:hover {
+    background: #1F618D;
+    color: #fff; }
+  .showcase .click:active {
+    background: #555;
+    color: #93cb7c; }
+
+.face {
+  width: 100%;
+  height: 100%;
+  background: #000;
   color: #fff;
   font-family: "Iceland", sans-serif;
-  font-size: 25px; }
+  font-size: 5vmin;
+  display: flex;
+  justify-content: center;
+  align-items: center; }
 
-.btn1:active {
+.shape {
+  perspective: 800px;
+  perspective-origin: 50% 50px; }
+  .shape .cube {
+    position: relative;
+    width: 300px;
+    transform-style: preserve-3d; }
+  .shape .cube div {
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    background: #fff;
+    color: #000;
+    background: rgba(255, 255, 255, 0.2);
+    box-shadow: 1px 1px 5px #000; }
+  .shape .front {
+    transform: translateZ(200px); }
+  .shape .right {
+    transform: rotateY(-270deg) translateX(100px);
+    transform-origin: top right; }
+  .shape .left {
+    transform: rotateY(270deg) translateX(-100px);
+    transform-origin: center left; }
+  .shape .back {
+    transform: translateZ(-100px) rotateY(180deg); }
+  .shape .top {
+    transform: rotateX(-90deg) translateY(-200px);
+    transform-origin: top center; }
+  .shape .bottom {
+    transform: rotateX(90deg) translateY(200px);
+    transform-origin: bottom center; }
+
+.cube-form {
+  width: 100%;
+  height: 85vh;
   background: #888;
-  color: #fff; }
-
-.btn1A {
-  width: 100px;
-  height: 40px;
-  background: #aaa;
   color: #fff;
-  font-family: "Iceland", sans-serif;
-  font-size: 25px;
-  border-radius: 25px; }
-
-.btn1A:active {
-  background: #888;
-  color: #fff; }
-
-.btn2 {
-  width: 150px;
-  height: 60px;
-  background: #aaa;
-  color: #fff;
-  font-family: "Iceland", sans-serif;
-  font-size: 40px; }
-
-.btn2:active {
-  background: #888;
-  color: #fff; }
-
-.btn2A {
-  width: 150px;
-  height: 60px;
-  background: #aaa;
-  color: #fff;
-  font-family: "Iceland", sans-serif;
-  font-size: 40px;
-  border-radius: 25px; }
-
-.btn2A:active {
-  background: #888;
-  color: #fff; }
-
-.btn3 {
-  width: 80px;
-  height: 30px;
-  background: #aaa;
-  color: #fff;
-  font-family: "Iceland", sans-serif;
-  font-size: 20px; }
-
-.btn3:active {
-  background: #888;
-  color: #fff; }
-
-.btn3A {
-  width: 80px;
-  height: 30px;
-  background: #aaa;
-  color: #fff;
-  font-family: "Iceland", sans-serif;
-  font-size: 20px;
-  border-radius: 25px; }
-
-.btn3A:active {
-  background: #888;
-  color: #fff; }
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+  .cube-form .form {
+    width: 100%;
+    height: 85vh;
+    background: #1F618D;
+    color: #fff;
+    border-radius: 10px;
+    padding-top: 2vh; }
+  .cube-form .creator {
+    width: 100%;
+    height: 10vh;
+    display: flex;
+    justify-content: center;
+    align-items: center; }
+  .cube-form .form-title {
+    width: 40%;
+    height: 10vh;
+    font-family: "Iceland", sans-serif;
+    font-size: 70px; }
+  .cube-form .name {
+    width: 500px;
+    height: 70%;
+    background: #34495E;
+    color: #fff;
+    font-family: "Bitter", serif;
+    font-size: 18px;
+    border-radius: 20px;
+    text-indent: 3vmin;
+    outline: none; }
+  .cube-form .form-wrap {
+    display: flex;
+    justify-content: center;
+    align-items: default;
+    padding-top: 5vmin;
+    padding-left: 10vmin; }
+  .cube-form .column {
+    padding-right: 10vmin; }
+  .cube-form .selector {
+    width: 100%;
+    height: 10vh;
+    font-family: "Iceland", sans-serif;
+    font-size: 40px;
+    display: flex;
+    justify-content: default;
+    align-items: center;
+    border-radius: 10px;
+    margin-bottom: 2vmin; }
+  .cube-form .type {
+    width: 30%;
+    height: 100%;
+    display: flex;
+    justify-content: default;
+    align-items: center;
+    margin-right: 5vmin; }
+  .cube-form .dropdown {
+    width: 200px;
+    height: 50%;
+    background: #34495E;
+    color: #fff;
+    font-family: "Bitter", serif;
+    font-size: 18px;
+    border-radius: 20px;
+    text-indent: 3vmin;
+    outline: none; }
+  .cube-form .media {
+    width: 100%;
+    height: 10vh;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; }
+  .cube-form .submit {
+    width: 100%;
+    height: 15vh;
+    display: flex;
+    justify-content: space-around;
+    align-items: center; }
+  .cube-form .save {
+    width: 15vw;
+    height: 10vh;
+    background: #34495E;
+    color: #4fc5d1;
+    font-family: "Iceland", sans-serif;
+    font-size: 50px;
+    border-radius: 10px; }
+  .cube-form .save:hover {
+    background: #4fc5d1;
+    color: #fff; }
+  .cube-form .save:active {
+    background: #555;
+    color: #93cb7c; }
