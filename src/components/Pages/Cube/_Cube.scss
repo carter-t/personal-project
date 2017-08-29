@@ -1,7 +1,29 @@
 .showcase {
   @include form(100%, 85vh);
-  @include colors($s3, $s0);
+  @include colors($c1, $s0);
   @include flex(center, default);
+
+  .cube-name {
+    position: fixed;
+    top: 15; left: 0;
+    @include form(30vw, 20vh);
+    @include text($text1, 100px);
+    @include flex(center, center);
+  }
+
+  .cube-select {
+    position: fixed;
+    right: 0;
+    @include form(30vw, 10vh);
+    @include colors($c0, $s0);
+    @include text($text1, 50px);
+    @include flex(center, center);
+    text-indent: 2vmin;
+    border-radius: 20px;
+    margin-right: 5vmin;
+    margin-top: 6vh;
+    outline: none;
+  }
 
   .control {
     @include form(80vw, 30vh);
@@ -20,18 +42,22 @@
     @include colors($c0, $c5-i);
     border-radius: 40%;
   } .click:hover {
-      @include colors($c1, $s0);
+      @include colors($c5-i, $s0);
     }
     .click:active {
       @include colors($s2, $c2-i);
     }
-}
 
-.face {
-  @include fill;
-  @include colors($s1, $s0);
-  @include text($text1, 5vmin);
-  @include flex(center, center);
+  .face {
+    @include fill;
+    @include colors($_T, $s0);
+    @include text($text1, 5vmin);
+    @include flex(center, center);
+  }
+  
+  .media {
+    @include fill;
+  }
 }
 
 .shape {
@@ -42,10 +68,11 @@
     position: relative;
     width: 300px;
     transform-style: preserve-3d;
+    transform-origin: 150px 150px 50px;
   }
   
   .cube div {
-    position: absolute;
+    position: fixed;
     @include form(300px, 300px);
     @include colors($s0, $s1);
     background: rgba(255, 255, 255, 0.2);
@@ -74,40 +101,4 @@
     transform: rotateX(90deg) translateY(200px);
     transform-origin: bottom center;
   }
-
-  // @keyframes spin {
-  //   0% { transform: rotateY(0);}
-  //   25% { transform: rotateY(90deg);}
-  //   50% { transform: rotateY(180deg);}
-  //   75% { transform: rotateY(270deg);}
-  //   100% { transform: rotateY(360deg);}
-  // }
-  
-  // .cube {
-  //   animation: spin 10s infinite;
-  // }
 }
-
-// @keyframes spin-vertical {
-// 	from { transform: rotateX(0); }
-// 	to { transform: rotateX(-360deg); }
-// }
-
-// .cube-wrap.vertical .cube {
-// 	margin: 0 auto; /* keeps the cube centered */
-
-// 	transform-origin: 0 100px;
-// 	animation: spin-vertical 5s infinite linear;
-// }
-
-// .cube-wrap.vertical .top {
-// 	transform: rotateX(-270deg) translateY(-100px);
-// }
-
-// .cube-wrap.vertical .back {
-// 	transform: translateZ(-100px) rotateX(180deg);
-// }
-
-// .cube-wrap.vertical .bottom {
-// 	transform: rotateX(-90deg) translateY(100px);
-// }

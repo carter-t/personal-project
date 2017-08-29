@@ -30,8 +30,13 @@
   }
 
   .form-wrap {
-    @include flex(center, default);
-    padding-top: 5vmin;
+    @include form (85vw, 50vh);
+    @include flex(center, center);
+    @include colors($c0, $s0);
+    border: 2px solid $s0;
+    border-radius: 10px;
+    margin-top: 5vmin;
+    margin-left: 15vmin;
     padding-left: 10vmin;
   }
 
@@ -55,7 +60,7 @@
 
   .dropdown {
     @include form(200px, 50%);
-    @include colors($c0, $s0);
+    @include colors($c1, $s0);
     @include text($text2, 18px);
     border-radius: 20px;
     text-indent: 3vmin;

@@ -1,1 +1,1 @@
-select * from cubes where tag = $1;
+select * from cubes where name = $1;

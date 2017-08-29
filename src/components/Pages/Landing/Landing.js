@@ -1,7 +1,4 @@
-import React, {Component} from 'react';
-
-import Cube from './../../Pages/Cube/Cube.js';
-import Break from './../../Body/Break/Break.js';
+import React from 'react';
 
 export default function Landing() {
   return (

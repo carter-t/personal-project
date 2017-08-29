@@ -48,6 +48,20 @@ passport.deserializeUser((profileFromSession, done) => {
   done(null, profileFromSession);
 });
 
+app.get('/api/getcube', (req, res) => {
+  let db = app.get('db');
+  db.cubes.readCube([req.body.name]).then(cube => {
+    res.send(cube);
+  });
+});
+
+app.get('/api/allcubes', (req, res) => {
+  let db = app.get('db');
+  db.cubes.readAllCubes().then(cube => {
+    res.send(cube);
+  });
+});
+
 app.post('/api/cube', (req, res) => {
   let db = app.get('db');
   db.cubes.createCube([

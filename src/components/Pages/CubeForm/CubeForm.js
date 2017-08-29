@@ -107,7 +107,6 @@ class CubeForm extends Component {
                 <option value="music"> Music </option>
               </select>
             </section>
-
             <section className="selector">
               <div className="type"> File: </div>
               <input type="file" onChange={ (e) => this.setState({backFile: e.target.value}) }/>

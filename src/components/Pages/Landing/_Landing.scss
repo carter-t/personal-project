@@ -15,28 +15,28 @@
     border-radius: 10px;
     opacity: 0.95;
     padding-top: 5vh;
+  }
 
-    .title {
-      @include text($text1, 60px);
+  .title {
+    @include text($text1, 60px);
+  }
+
+  .caption {
+    @include text($text2, 25px);
+    padding-top: 5vh;
+  }
+
+  .login {
+    @include text($text1, 120px);
+    color: $c5-i;
+    padding-top: 10vh;
+  } .login:hover {
+      color: $c2-i
     }
 
-    .caption {
-      @include text($text2, 25px);
-      padding-top: 5vh;
-    }
-
-    .login {
-      @include text($text1, 120px);
-      color: $c5-i;
-      padding-top: 10vh;
-    } .login:hover {
-        color: $c2-i
-      }
-
-    .details {
-      @include text($text2, 25px);
-      padding-top: 5vh;
-    }
+  .details {
+    @include text($text2, 25px);
+    padding-top: 5vh;
   }
 
   .side {
@@ -55,7 +55,29 @@
 
 // Mobile Filter
 @media (max-width: 800px) {
+  .landing {
+    @include form(100%, 90vh);
 
+    .content {
+      @include form(80vw, 80vh);
+    }
+
+    .title {
+      @include text($text1, 35px);
+    }
+
+    .caption {
+      @include text($text2, 15px);
+    }
+
+    .login {
+      @include text($text1, 100px);
+    }
+
+    .details {
+      @include text($text1, 25px);
+    }
+  }
 }
 
 // Desktop Filter

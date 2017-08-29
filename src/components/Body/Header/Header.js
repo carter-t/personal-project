@@ -54,10 +54,10 @@ class Header extends Component {
 }
 
 export default connect((state) => {
-  console.log('STATE:', state.userData);
+  console.log('STATE:', state.user);
   return {
     user: state.user,
-    // usertag: state.user.id,
+    // usertag: state.user.tag,
     // username: state.user.name,
     // email: state.user.email,
     // image: state.user.image
