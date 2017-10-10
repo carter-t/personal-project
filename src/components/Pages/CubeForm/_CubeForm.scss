@@ -1,69 +1,73 @@
 .cube-form {
   @include form(100%, 85vh);
-  @include colors($s3, $s0);
   @include flex(center, center);
 
   .form {
     @include form(100%, 85vh);
-    @include colors($c1, $s0);
     border-radius: 10px;
-    padding-top: 2vh;
   }
 
   .creator {
     @include form(100%, 10vh);
     @include flex(center, center);
+    margin-top: 3vmin;
   }
 
   .form-title {
     @include form(40%, 10vh);
+    @include colors($s0, $c1);
     @include text($text1, 70px);
   }
 
   .name {
-    @include form(500px, 70%);
-    @include colors($c0, $s0);
-    @include text($text2, 18px);
-    border-radius: 20px;
+    @include form(400px, 60px);
+    @include colors($c1, $s0);
+    @include text($text4, 28px);
+    font-weight: 600;
+    border: 2px solid $c0;
+    border-radius: 5px;
     text-indent: 3vmin;
     outline: none;
   }
 
-  .form-wrap {
-    @include form (85vw, 50vh);
-    @include flex(center, center);
-    @include colors($c0, $s0);
-    border: 2px solid $s0;
-    border-radius: 10px;
-    margin-top: 5vmin;
-    margin-left: 15vmin;
-    padding-left: 10vmin;
+  .name::placeholder {
+    color: white;
+    opacity: 0.5;
   }
 
-  .column {
-    padding-right: 10vmin;
+  .form-wrap {
+    @include flex(center, center);
+    @include form (100%, 50vh);
+    @include text($text1, 40px);
+    margin-top: 5vmin;
+  }
+
+  .form-block {
+    @include form(50vw, 100%);
+    @include colors($c1, $s0);
+    border: 2px solid $c0;
+    border-radius: 5px;
   }
 
   .selector {
-    @include form(100%, 10vh);
-    @include text($text1, 40px);
-    @include flex(default, center);
-    border-radius: 10px;
-    margin-bottom: 2vmin;
+    @include form(100%, auto);
+    @include flex(center, center);
+    margin-top: 5vmin;
   }
 
   .type {
-    @include form(30%, 100%);
+    @include form(100px, 50px);
     @include flex(default, center);
-    margin-right: 5vmin;
+    margin-right: 20px;
   }
 
   .dropdown {
-    @include form(200px, 50%);
-    @include colors($c1, $s0);
-    @include text($text2, 18px);
-    border-radius: 20px;
-    text-indent: 3vmin;
+    @include form(300px, 40px);
+    @include colors($c0, $s0);
+    @include text($text4, 22px);
+    border: 1px solid $s0;
+    border-radius: 5px;
+    text-indent: 2vmin;
     outline: none;
   }
 
@@ -82,11 +86,58 @@
     @include form(15vw, 10vh);
     @include colors($c0, $c5-i);
     @include text($text1, 50px);
-    border-radius: 10px;
+    border: none;
+    border-radius: 5px;
   } .save:hover {
       @include colors($c5-i, $s0);
     }
     .save:active {
       @include colors($s2, $c2-i);
     }
+    .save:disabled {
+      opacity: 0.8;
+      cursor: default;
+    }
+    .save:disabled:hover {
+      @include colors($c0, $c5-i);
+    }
+
+  .small-save {
+    @extend .save;
+    @include form(8vw, 6vh);
+    @include text($text1, 32px);
+  }
+
+  .markers {
+    @include flex(space-around, center);
+    @include form(300px, 50px);
+    @include text($text1, 24px);
+    margin-right: 100px;
+  }
+
+  .mark {
+    @include flex(center, center);
+    @include form(30px, 30px);
+    @include colors($c0, $s0);
+    border-radius: 5px;
+  }
+
+  .mark-on {
+    @extend .mark;
+    @include colors($c2-i, $s1);
+  }
+
+  .side {
+    @include form(2vw, 112vh);
+    @include colors($c1, $s0);
+    opacity: 0.4;
+  }
+  .left {
+    @extend .side;
+    @include left;
+  }
+  .right {
+    @extend .side;
+    @include right;
+  }
 }

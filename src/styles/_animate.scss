@@ -1,11 +1,5 @@
 // Animations
 
-  // .div1 {animation-timing-function: linear;}
-  // .div2 {animation-timing-function: ease;}
-  // .div3 {animation-timing-function: ease-in;}
-  // .div4 {animation-timing-function: ease-out;}
-  // .div5 {animation-timing-function: ease-in-out;}
-
 @mixin time($t) {
   -webkit-transition: $t;
   -moz-transition: $t;
@@ -23,8 +17,13 @@
 }
 
 @keyframes slideLTR {
-  0%    {left:-30vmin;}
+  0%    {left:-32vmin;}
   100%  {left:0vmin;}
+}
+
+@keyframes slideRTL {
+  0%    {left:0vmin;}
+  100%  {left:-32vmin;}
 }
 
 @keyframes fourSquare {

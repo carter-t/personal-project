@@ -1,35 +1,31 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {getUser} from './../../../dux/data.js';
-
 import Slider from './../Slider/Slider.js';
 
 class Header extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      slider: false
-    }
+
     this.updateSlider = this.updateSlider.bind(this);
+
+    this.state = {
+      slider: "slider"
+    }
   }
 
   
-  componentDidMount() {
-    this.props.getUser().then(user => {
-      console.log('USER:', user);
-    });
-  }
+  // componentDidMount() {
+  //   this.props.getUser().then(user => {
+  //     console.log('UserREQ:', user);
+  //   });
+  // }
 
   updateSlider() {
-    !this.state.slider?this.setState({slider:true}):this.setState({slider:false});
+    this.state.slider==="slider LTR"?this.setState({slider:"slider RTL"}):this.setState({slider:"slider LTR"});
   }
 
   render() {
-
-    const renderSlider = () => {
-      if(this.state.slider){return <Slider/>}
-    }
-
     return (
       <header className="header">
         <main className="overlay">
@@ -47,19 +43,14 @@ class Header extends Component {
 
         </main>
         <div className="static"></div>
-        {renderSlider()}
+        <Slider updateSlider={this.updateSlider} className={this.state.slider}/>
       </header>
     )
   }
 }
 
 export default connect((state) => {
-  console.log('STATE:', state.user);
   return {
-    user: state.user,
-    // usertag: state.user.tag,
-    // username: state.user.name,
-    // email: state.user.email,
-    // image: state.user.image
+    user: state.user
   }
 }, {getUser})(Header);

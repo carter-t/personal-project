@@ -29,7 +29,7 @@
   .log {
     @include form(8vw, 100%);
     @include flex(default, flex-start);
-    padding-top: 1vmin;
+    padding-top: 2vmin;
     font-size: 5vmin;
   }
 

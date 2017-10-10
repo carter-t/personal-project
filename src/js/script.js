@@ -106,3 +106,6 @@ function Articles(arguments) {
   dislikes: 0;
   shares: 0;
 }
+
+Prototypes:
+  .until();

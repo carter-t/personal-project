@@ -5,65 +5,56 @@ import {postCube} from './../../../dux/data.js';
 class CubeForm extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      name: '',
 
-      frontType: '',
-      frontFile: '',
-
-      backType: '',
-      backFile: '',
-
-      leftType: '',
-      leftFile: '',
-
-      rightType: '',
-      rightFile: '',
-
-      topType: '',
-      topFile: '',
-
-      bottomType: '',
-      bottomFile: ''
-    }
+    this.updateName = this.updateName.bind(this);
     this.updateFace = this.updateFace.bind(this);
+    this.updateType = this.updateType.bind(this);
+    this.updateURL = this.updateURL.bind(this);
+    this.addFace = this.addFace.bind(this);
+
+    this.state = {
+      name: false,
+      face: "front",
+      type: "photo",
+      url: false,
+      front: [],
+      back: [],
+      left: [],
+      right: [],
+      top: [],
+      bottom: []
+    }
   }
 
-  updateFace() {
-    console.log('Setting Face', this.state.side)
-    switch(this.state.side) {
-      case 'front':
-        return this.setState({frontFace: {
-          media: this.state.media,
-          file: this.state.file
-        }});
-      case 'left':
-        return this.setState({leftFace: {
-          media: this.state.media,
-          file: this.state.file
-        }});
-      case 'right':
-        return this.setState({rightFace: {
-          media: this.state.media,
-          file: this.state.file
-        }});
-      case 'back':
-        return this.setState({backFace: {
-          media: this.state.media,
-          file: this.state.file
-        }});
-      case 'top':
-        return this.setState({topFace: {
-          media: this.state.media,
-          file: this.state.file
-        }});
-      case 'bottom':
-        return this.setState({bottomFace: {
-          media: this.state.media,
-          file: this.state.file
-        }});
-      default:
-        return alert('Please select a file!');
+  updateName(event) {
+    console.log(event.target.value);
+    this.setState({name: event.target.value});
+  }
+
+  updateFace(event) {
+    console.log(event.target.value);
+    this.setState({face: event.target.value});
+  }
+
+  updateType(event) {
+    console.log(event.target.value);
+    this.setState({type: event.target.value});
+  }
+
+  updateURL(event) {
+    console.log(event.target.value);
+    this.setState({url: event.target.value});
+  }
+
+  addFace() {
+    switch(this.state.face) {
+      case "front": this.setState({front: [this.state.type, this.state.url]}); console.log('Front', this.state.front); break;
+      case "back": this.setState({back: [this.state.type, this.state.url]}); console.log('Back', this.state.back); break;
+      case "left": this.setState({left: [this.state.type, this.state.url]}); console.log('Left', this.state.left); break;
+      case "right": this.setState({right: [this.state.type, this.state.url]}); console.log('Right', this.state.right); break;
+      case "top": this.setState({top: [this.state.type, this.state.url]}); console.log('Top', this.state.top); break;
+      case "bottom": this.setState({bottom: [this.state.type, this.state.url]}); console.log('Bottom', this.state.bottom); break;
+      default: console.log("Wrong Face!");
     }
   }
 
@@ -71,150 +62,76 @@ class CubeForm extends Component {
     return (
       <main className="cube-form">
         <form className="form">
+          <aside className="left"></aside>
+          <aside className="right"></aside>
 
           <section className="creator">
             <h1 className="form-title"> Create-A-Cube </h1>
             <input className="name" placeholder="Cube Name"
-              onChange={ (e) => this.setState({name: e.target.value}) }/>
+              onChange={ (e) => this.updateName(e) }/>
           </section>
 
 
-          <div className="form-wrap">
-          <div className="column">
-            <section className="selector">
-              <div className="type"> Front </div>
-              <select name="cube" className="dropdown"
-                onChange={ (e) =>  this.setState({frontType: e.target.value}) }>
-                <option value=""></option>
-                <option value="photo"> Photo </option>
-                <option value="video"> Video </option>
-                <option value="music"> Music </option>
-              </select>
-            </section>
-            <section className="selector">
-              <div className="type"> File: </div>
-              <input type="file" onChange={ (e) => this.setState({frontFile: e.target.value}) }/>
-            </section>
+          <section className="form-wrap">
+            <div className="form-block">
 
+              <div className="selector">
+                <div className="type"> Face </div>
+                <select name="cube" className="dropdown"
+                  onChange={ (e) =>  this.updateFace(e) }>
+                  <option value="front"> 1 - Front </option>
+                  <option value="back"> 2 - Back </option>
+                  <option value="left"> 3 - Left </option>
+                  <option value="right"> 4 - Right </option>
+                  <option value="top"> 5 - Top </option>
+                  <option value="bottom"> 6 - Bottom </option>
+                </select>
+              </div>
 
-            <section className="selector">
-              <div className="type"> Back </div>
-              <select name="cube" className="dropdown"
-                onChange={ (e) =>  this.setState({backType: e.target.value}) }>
-                <option value=""></option>
-                <option value="photo"> Photo </option>
-                <option value="video"> Video </option>
-                <option value="music"> Music </option>
-              </select>
-            </section>
-            <section className="selector">
-              <div className="type"> File: </div>
-              <input type="file" onChange={ (e) => this.setState({backFile: e.target.value}) }/>
-            </section>
-          </div>
+              <div className="selector">
+                <div className="type"> Type </div>
+                <select name="cube" className="dropdown"
+                  onChange={ (e) =>  this.updateType(e) }>
+                  <option value="photo"> Photo </option>
+                  <option value="video"> Video </option>
+                  <option value="music"> Music </option>
+                </select>
+              </div>
 
+              <div className="selector">
+                <div className="type"> URL </div>
+                <input className="dropdown" onChange={ (e) => this.updateURL(e) }/>
+              </div>
 
+              <div className="selector">
+                <div className="markers">
+                  <div className={this.state.front.length?"mark-on":"mark"}> 1 </div>
+                  <div className={this.state.back.length?"mark-on":"mark"}> 2 </div>
+                  <div className={this.state.left.length?"mark-on":"mark"}> 3 </div>
+                  <div className={this.state.right.length?"mark-on":"mark"}> 4 </div>
+                  <div className={this.state.top.length?"mark-on":"mark"}> 5 </div>
+                  <div className={this.state.bottom.length?"mark-on":"mark"}> 6 </div>
+                </div>
+                <button type="button" className="small-save" disabled={this.state.url?false:true} onClick={() => this.addFace()}> Add </button>
+              </div>
 
-
-
-          <div className="column">
-            <section className="selector">
-              <div className="type"> Left </div>
-              <select name="cube" className="dropdown"
-                onChange={ (e) =>  this.setState({leftType: e.target.value}) }>
-                <option value=""></option>
-                <option value="photo"> Photo </option>
-                <option value="video"> Video </option>
-                <option value="music"> Music </option>
-              </select>
-            </section>
-            <section className="selector">
-              <div className="type"> File: </div>
-              <input type="file" onChange={ (e) => this.setState({leftFile: e.target.value}) }/>
-            </section>
-
-
-            <section className="selector">
-              <div className="type"> Right </div>
-              <select name="cube" className="dropdown"
-                onChange={ (e) =>  this.setState({rightType: e.target.value}) }>
-                <option value=""></option>
-                <option value="photo"> Photo </option>
-                <option value="video"> Video </option>
-                <option value="music"> Music </option>
-              </select>
-            </section>
-            <section className="selector">
-              <div className="type"> File: </div>
-              <input type="file" onChange={ (e) => this.setState({rightFile: e.target.value}) }/>
-            </section>
-          </div>
-
-
-
-
-
-          <div className="column">
-            <section className="selector">
-              <div className="type"> Top </div>
-              <select name="cube" className="dropdown"
-                onChange={ (e) =>  this.setState({topType: e.target.value}) }>
-                <option value=""></option>
-                <option value="photo"> Photo </option>
-                <option value="video"> Video </option>
-                <option value="music"> Music </option>
-              </select>
-            </section>
-            <section className="selector">
-              <div className="type"> File: </div>
-              <input type="file" onChange={ (e) => this.setState({topFile: e.target.value}) }/>
-            </section>
-
-
-            <section className="selector">
-              <div className="type"> Bottom </div>
-              <select name="cube" className="dropdown"
-                onChange={ (e) =>  this.setState({bottomType: e.target.value}) }>
-                <option value=""></option>
-                <option value="photo"> Photo </option>
-                <option value="video"> Video </option>
-                <option value="music"> Music </option>
-              </select>
-            </section>
-            <section className="selector">
-              <div className="type"> File: </div>
-              <input type="file" onChange={ (e) => this.setState({bottomFile: e.target.value}) }/>
-            </section>
-          </div>
-          </div>
+            </div>
+          </section>
 
           <div className="submit">
-            <button className="save"
+            <button className="save" disabled={this.state.name&&this.state.front.length&&this.state.back.length&&this.state.left.length&&this.state.right.length&&this.state.top.length&&this.state.bottom.length?false:true}
               onClick={ () => this.props.postCube(
-
-                'tag-ur-it',
+                "tag-ur-it",
                 this.state.name,
-
-                this.state.frontType,
-                this.state.frontFile,
-
-                this.state.leftType,
-                this.state.leftFile,
-
-                this.state.rightType,
-                this.state.rightFile,
-
-                this.state.backType,
-                this.state.backFile,
-
-                this.state.topType,
-                this.state.topFile,
-
-                this.state.bottomType,
-                this.state.bottomFile
-
-              ) }> Create </button>
+                this.state.front,
+                this.state.back,
+                this.state.left,
+                this.state.right,
+                this.state.top,
+                this.state.bottom
+              )}> Create </button>
           </div>
+
         </form>
       </main>
     )
@@ -222,9 +139,7 @@ class CubeForm extends Component {
 }
 
 export default connect((state) => {
-  console.log("State User:", state.user)
   return {
-    user: state.user,
-    // tag: state.user.tag
+    
   }
 }, {postCube})(CubeForm);

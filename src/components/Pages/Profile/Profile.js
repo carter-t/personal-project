@@ -1,25 +1,37 @@
 import React, {Component} from 'react';
+import {connect} from 'react-redux';
+import {getUser} from './../../../dux/data.js';
 
-import Cube from './../../Pages/Cube/Cube.js';
-import Break from './../../Body/Break/Break.js';
+class Profile extends Component {
+  constructor(props) {
+    super(props);
 
-export default function Landing() {
-  return (
-    <main className="landing">
-      <aside className="left"></aside>
-      <aside className="right"></aside>
+    this.state = {
+      
+    }
+  }
 
-      <section className="center">
+  render() {
+    return (
+      <main className="profile">
+        <aside className="left"></aside>
+        <aside className="right"></aside>
 
-        <div className="content">
-          <h2 className="title"> Welcome to CUB3 </h2>
-          <p className="caption"> A Customizable 3D Media Player </p>
-          <a href="http://localhost:3001/auth">
-            <h3 className="login"> Login </h3></a>
-          <p className="details"> To create your first Cube! </p>
-        </div>
-
-      </section>
-    </main>
-  )
+        <section className="center">
+          <div className="content">
+            <h2 className="title"> {!this.props.user?"Guest":this.props.user.name} </h2>
+            <div> {!this.props.user?null:this.props.user.image} </div>
+          </div>
+        </section>
+        
+      </main>
+    )
+  }
 }
+
+export default connect((state) => {
+  console.log('Profile:', state.user);
+  return {
+    user: state.user
+  }
+}, {getUser})(Profile);

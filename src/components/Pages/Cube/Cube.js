@@ -1,62 +1,105 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {getCube, getAllCubes} from './../../../dux/data.js';
+import {getCubes} from './../../../dux/data.js';
 
 class Cube extends Component {
   constructor(props) {
     super(props);
+
+    this.loopCubes = this.loopCubes.bind(this);
+    this.renderCubeSelect = this.renderCubeSelect.bind(this);
+    this.buildCube = this.buildCube.bind(this);
+    this.buildFace = this.buildFace.bind(this);
+
     this.state = {
-      current: '',
-      front: '',
-      left: '',
-      right: '',
-      back: '',
-      top: '',
-      bottom: ''
+      cubes: false,
+      cube: false,
+      front: false,
+      left: false,
+      right: false,
+      back: false,
+      top: false,
+      bottom: false
     }
   }
 
   componentDidMount() {
-    this.props.getAllCubes();
+    this.props.getCubes().then(cubes => {
+      this.setState({cubes: cubes.action.payload.data});
+    });
+  }
+
+  loopCubes() {
+    let options = [];
+    for(let id in this.state.cubes) {
+      let cube = this.state.cubes[id].name
+      let option = (
+        <option key={cube} value={cube}> {cube} </option>
+      )
+      options.push(option);
+    }
+    return options;
   }
 
   renderCubeSelect() {
     return (
-      <select className="cube-select" onChange={ (e) => this.setState({current: e.target.value})}>
-        <option value=""></option>
-        <option value="cubeOne"> Cube One </option>
-        <option value="cubeTwo"> Cube Two </option>
+      <select className="cube-select" onChange={ (e) => this.buildCube(e)}>
+        <option value=''> Select A Cube </option>
+        {this.loopCubes()}
       </select>
     )
   }
 
-  // buildCube() {
-  //   switch(this.state.current) {
-  //     case 'cubeOne':
-  //       return this.setState({
-  //         front: "https://www.youtube.com/embed/RxgughFKB48",
-  //         left: "https://www.youtube.com/embed/Zi3Nq6l0H28",
-  //         right: "https://www.youtube.com/embed/aAlXfs3Ta_A",
-  //         back: "https://www.youtube.com/embed/aAlXfs3Ta_A",
-  //         top: "https://www.youtube.com/embed/NUC2EQvdzmY",
-  //         bottom: "https://www.youtube.com/embed/ti73SgrLadU"
-  //       });
-  //   }
-  // }  
+  buildCube(event) {
+    this.setState({cube: event.target.value});
+    for(let id in this.state.cubes) {
+      let cube = this.state.cubes[id];
+      if(this.state.cube === cube.name) {
+        this.setState({
+          front: cube.frontface.split('').slice(1, -1).join('').split(','),
+          left: cube.backface.split('').slice(1, -1).join('').split(','),
+          right: cube.leftface.split('').slice(1, -1).join('').split(','),
+          back: cube.rightface.split('').slice(1, -1).join('').split(','),
+          top: cube.topface.split('').slice(1, -1).join('').split(','),
+          bottom: cube.bottomface.split('').slice(1, -1).join('').split(','),
+        });
+      }
+    }
+  }
+
+  buildFace(face) {
+    switch(face[0]) {
+      case 'photo': console.log('wrong'); return (
+        <img className="media" src={face[1]} alt=""></img>
+      );
+      case 'video': console.log('face', face[0], face[1]); return (
+        <video className="media" src={face[1]} title="">
+          <source src={face[1]}/>
+        </video>
+      );
+      case 'music': console.log('wrong again', face[1]); return (
+        <div>
+          <img className="media" src="./audio-default.jpg" alt=""></img>
+          <iframe src="http://techslides.com/demos/sample-videos/small.mp4" title="oops! no file here :("></iframe>
+        </div>
+      );
+      default: return null;
+    }
+  }
 
   render() {
     
-    const rotateUp =() => {
+    const rotateUp = () => {
       let cube = document.getElementById("cube");
       let deg = 0;
       let time = setInterval(frame, 15);
   
       function frame() {
-        if(deg === 90) {
+        if(deg === -90) {
           clearInterval(time);
         }
         else {
-          deg++;
+          deg--;
           cube.style.transform = 'rotateX('+deg+'deg)';
         }
       }
@@ -68,11 +111,11 @@ class Cube extends Component {
       let time = setInterval(frame, 15);
   
       function frame() {
-        if(deg === -90) {
+        if(deg === 90) {
           clearInterval(time);
         }
         else {
-          deg--;
+          deg++;
           cube.style.transform = 'rotateX('+deg+'deg)';
         }
       }
@@ -112,8 +155,10 @@ class Cube extends Component {
 
     return (
       <main className="showcase">
+        <aside className="left-side"></aside>
+        <aside className="right-side"></aside>
 
-        <div className="cube-name"> CUB3 </div>
+        <div className="cube-name"> {this.state.cube?this.state.cube.toUpperCase():"CUB3"} </div>
         {this.renderCubeSelect()}
 
         <div className="control">
@@ -130,37 +175,37 @@ class Cube extends Component {
 
               <div className="front">
                 <section className="face">
-                  {/* <iframe className="media" src={this.state.front} title="video" frameborder="0" allowfullscreen></iframe> */}
+                  {this.state.cube?this.buildFace(this.state.front):"Select A Cube Above"}
                 </section>
               </div>
 
               <div className="left">
                 <section className="face">
-                  {/* <iframe className="media" src={this.state.left} title="video" frameborder="0" allowfullscreen></iframe> */}
+                  {this.state.cube?this.buildFace(this.state.front):"Select A Cube Above"}
                 </section>
               </div>
 
               <div className="right">
                 <section className="face">
-                {/* <iframe className="media" src={this.state.right} title="video" frameborder="0" allowfullscreen></iframe> */}
+                  {this.state.cube?this.buildFace(this.state.front):"Select A Cube Above"}
                 </section>
               </div>
 
               <div className="back">
                 <section className="face">
-                  {/* <iframe className="media" src={this.state.back} title="video" frameborder="0" allowfullscreen></iframe> */}
+                {this.state.cube?this.buildFace(this.state.front):"Select A Cube Above"}
                 </section>
               </div>
 
               <div className="top">
                 <section className="face">
-                  {/* <iframe className="media" src={this.state.top} title="video" frameborder="0" allowfullscreen></iframe> */}
+                  {this.state.cube?this.buildFace(this.state.front):"Select A Cube Above"}
                 </section>
               </div>
 
               <div className="bottom">
                 <section className="face">
-                  {/* <iframe className="media" src={this.state.bottom} title="video" frameborder="0" allowfullscreen></iframe> */}
+                  {this.state.cube?this.buildFace(this.state.front):"Select A Cube Above"}
                 </section>
               </div>
 
@@ -174,16 +219,15 @@ class Cube extends Component {
             <button onClick={ () => rotateRight()}
               className="click"> 	&#9654; </button>
           </div>
-        </div>
 
+        </div>
       </main>
     )
   }
 }
 
 export default connect((state) => {
-  console.log('CUBE:', state.cube);
   return {
-    cube: state.cube
+    
   }
-}, {getCube, getAllCubes})(Cube);
+}, {getCubes})(Cube);

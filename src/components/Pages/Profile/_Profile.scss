@@ -1,10 +1,9 @@
-.landing {
+.profile {
   @include form(100%, 85vh);
 
   .center {
     @include fill;
     @include flex(center, default);
-    @include image('./images/3kings.jpg');
     padding-top: 5vh;
   }
 
@@ -12,8 +11,8 @@
     @include form(40vw, 70vh);
     @include colors($c1, $s0);
     @include column(default, center);
-    border-radius: 10px;
-    opacity: 0.95;
+    border: 2px solid $c0;
+    border-radius: 5px;
     padding-top: 5vh;
 
     .title {

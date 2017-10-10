@@ -1,27 +1,34 @@
 import axios from 'axios';
 
 const initialState = {
-  user: {},
-  cube: {},
-  allcubes: {}
+  user: false,
+  cubes: false,
 }
 
 const GET_USER = 'GET_USER';
-const GET_CUBE = 'GET_CUBE';
-const ALL_CUBES = 'ALL_CUBES';
+
+const GET_CUBES = 'GET_CUBES';
 const POST_CUBE = 'POST_CUBE';
 
 export default function data(state=initialState, action) {
   switch(action.type) {
 
-    case GET_USER:
+    // GET_USER
+    case GET_USER + '_PENDING':
+      console.log(GET_USER + '_PENDING');
+      return state;
+
+    case GET_USER + '_FULFILLED':
+      console.log(GET_USER + '_FULFILLED', action.payload.data[0]);
       return Object.assign({}, state, {user: action.payload.data[0]});
 
-    case GET_CUBE:
-      return Object.assign({}, state, {cube: action.payload});
+    // GET_CUBES
+    case GET_CUBES + '_PENDING':
+      return state;
 
-    case ALL_CUBES:
-      return Object.assign({}, state, {allcubes: action.payload});
+    case GET_CUBES + '_FULFILLED':
+      console.log(GET_CUBES + '_FULFILLED', action.payload.data);
+      return Object.assign({}, state, {cubes: action.payload.data});
 
     default:
       return state;
@@ -29,42 +36,30 @@ export default function data(state=initialState, action) {
 }
 
 export function getUser() {
+  console.log('Getting User');
   return {
     type: GET_USER,
     payload: axios.get('/api/user')
   }
 }
 
-export function getCube() {
+export function getCubes() {
   return {
-    type: GET_CUBE,
-    payload: axios.get('/api/getcube')
+    type: GET_CUBES,
+    payload: axios.get('/api/getcubes')
   }
 }
 
-export function getAllCubes() {
-  return {
-    type: ALL_CUBES,
-    payload: axios.get('api/allcubes')
-  }
-}
-
-export function postCube(a, b, c, d, e, f, g, h, i, j, k, l, m, n) {
+export function postCube(tag, name, front, back, left, right, top, bottom) {
   let cube = {
-    "tag": a,
-    "name": b,
-    "fronttype": c,
-    "frontfile": d,
-    "lefttype": e,
-    "leftfile": f,
-    "righttype": g,
-    "rightfile": h,
-    "backtype": i,
-    "backfile": j,
-    "toptype": k,
-    "topfile": l,
-    "bottomtype": m,
-    "bottomfile": n
+    "tag": tag,
+    "name": name,
+    "front": front,
+    "back": back,
+    "left": left,
+    "right": right,
+    "top": top,
+    "bottom": bottom
   };
   return {
     action: POST_CUBE,

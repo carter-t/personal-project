@@ -48,14 +48,7 @@ passport.deserializeUser((profileFromSession, done) => {
   done(null, profileFromSession);
 });
 
-app.get('/api/getcube', (req, res) => {
-  let db = app.get('db');
-  db.cubes.readCube([req.body.name]).then(cube => {
-    res.send(cube);
-  });
-});
-
-app.get('/api/allcubes', (req, res) => {
+app.get('/api/getcubes', (req, res) => {
   let db = app.get('db');
   db.cubes.readAllCubes().then(cube => {
     res.send(cube);
@@ -64,27 +57,16 @@ app.get('/api/allcubes', (req, res) => {
 
 app.post('/api/cube', (req, res) => {
   let db = app.get('db');
+  console.log("REQ", req.body);
   db.cubes.createCube([
     req.body.tag,
     req.body.name,
-
-    req.body.fronttype,
-    req.body.frontfile,
-
-    req.body.lefttype,
-    req.body.leftfile,
-
-    req.body.righttype,
-    req.body.rightfile,
-
-    req.body.backtype,
-    req.body.backfile,
-
-    req.body.toptype,
-    req.body.topfile,
-
-    req.body.bottomtype,
-    req.body.bottomfile,
+    req.body.front,
+    req.body.back,
+    req.body.left,
+    req.body.right,
+    req.body.top,
+    req.body.bottom
   ]);
 });
 

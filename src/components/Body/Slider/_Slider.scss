@@ -1,5 +1,15 @@
-.slider {
+.LTR {
   @include animate('slideLTR', 0, 0.5s, 1);
+  animation-fill-mode: forwards;
+}
+
+.RTL {
+  @include animate('slideRTL', 0, 0.5s, 1);
+  animation-fill-mode: forwards;
+}
+
+.slider {
+  left: -32vh;
   @include bottom;
   @include form(15vw, 85vh);
   @include colors($c1, $s0);
@@ -13,19 +23,21 @@
   .title {
     @include form(100%, 7vh);
     @include flex(center, center);
-    @include text($text1, 4vmin);
+    @include text($text1, 5vmin);
     color: $c2-i;
   }
 
   .row {
-    @include form(100%, 5vmin);
+    @include form(100%, 7vmin);
     @include flex(center, center);
     @include text($text4, 3vmin);
-  } .row:hover {
-      @include colors($c2-i, $s0);
-      font-weight: bold;
-      font-size: 4vmin;
-    }
+  }
+
+  .row:hover {
+    @include colors($c2-i, $s0);
+    font-weight: bold;
+    font-size: 4vmin;
+  }
 }
 
 .slider::-webkit-scrollbar {
@@ -49,12 +61,5 @@
       @include form(100%, 7vmin);
       @include text($text4, 5vmin);
     }
-  }
-}
-
-// Desktop Filter
-@media (min-width: 800px) {
-  .slider {
-    
   }
 }

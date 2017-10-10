@@ -1,11 +1,11 @@
 .showcase {
   @include form(100%, 85vh);
-  @include colors($c1, $s0);
   @include flex(center, default);
 
   .cube-name {
     position: fixed;
-    top: 15; left: 0;
+    top: 100px; left: 200px;
+    color: $c1;
     @include form(30vw, 20vh);
     @include text($text1, 100px);
     @include flex(center, center);
@@ -13,34 +13,40 @@
 
   .cube-select {
     position: fixed;
-    right: 0;
-    @include form(30vw, 10vh);
-    @include colors($c0, $s0);
-    @include text($text1, 50px);
+    right: 150px;
+    @include form(22vw, 7vh);
+    @include colors($c1, $s0);
+    @include text($text4, 26px);
     @include flex(center, center);
     text-indent: 2vmin;
-    border-radius: 20px;
-    margin-right: 5vmin;
-    margin-top: 6vh;
+    border: 2px solid $c0;
+    border-radius: 5px;
+    margin-right: 20vmin;
+    margin-top: 5vh;
     outline: none;
   }
 
   .control {
-    @include form(80vw, 30vh);
+    @include form(60vw, 40vh);
+    @include colors($c1, $s0);
     @include flex(space-around, default);
+    border: 2px solid $c0;
+    border-radius: 5px;
     margin-top: 25vh;
   }
 
   .stack {
-    @include form(100px, 50vh);
+    @include form(0, 35vh);
     @include column(space-around, center);
+    margin-top: 20px;
   }
 
   .click {
-    @include form(100px, 100px);
+    @include form(80px, 80px);
     @include text($text1, 5vmin);
     @include colors($c0, $c5-i);
-    border-radius: 40%;
+    border: none;
+    border-radius: 5px;
   } .click:hover {
       @include colors($c5-i, $s0);
     }
@@ -50,13 +56,27 @@
 
   .face {
     @include fill;
-    @include colors($_T, $s0);
-    @include text($text1, 5vmin);
+    @include colors($_T, $s1);
+    @include text($text1, 4vmin);
     @include flex(center, center);
   }
   
   .media {
     @include fill;
+  }
+
+  .side {
+    @include form(2vw, 112vh);
+    @include colors($c1, $s0);
+    opacity: 0.4;
+  }
+  .left-side {
+    @extend .side;
+    @include left;
+  }
+  .right-side {
+    @extend .side;
+    @include right;
   }
 }
 
@@ -74,7 +94,6 @@
   .cube div {
     position: fixed;
     @include form(300px, 300px);
-    @include colors($s0, $s1);
     background: rgba(255, 255, 255, 0.2);
     box-shadow: 1px 1px 5px $s1;
   }
@@ -94,11 +113,11 @@
     transform: translateZ(-100px) rotateY(180deg);
   }
   .top {
-    transform: rotateX(-90deg) translateY(-200px);
+    transform: rotateX(90deg) translateY(-100px);
     transform-origin: top center;
   }
   .bottom {
-    transform: rotateX(90deg) translateY(200px);
+    transform: rotateX(-90deg) translateY(100px);
     transform-origin: bottom center;
   }
 }
